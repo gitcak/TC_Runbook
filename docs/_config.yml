@@ -1,25 +1,16 @@
 # Permalinks
 permalink: pretty
 
-# Setup
-title: Docs Assembler demo guides
+# Site identity
+title: Teamcenter 2412 Installation Runbook
+url: "https://gitcak.github.io"
+baseurl: "/TC_Runbook"
+
+# Doc Assembler source types (processed as Markdown by Jekyll)
 markdown_ext: markdown,tsfrg,tsgde,md
 
 defaults:
   - scope:
-      path: "" # Empty string for all files
+      path: ""
     values:
       layout: "simple"
-      
-# Disable all caching
-disable_disk_cache: true
-
-# Or more specific cache controls
-full_rebuild: true
-
-# remove !!!!!!!!!!!!
-webrick:
-  headers:
-    Access-Control-Allow-Origin: "*"
-
-    

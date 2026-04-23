@@ -1,7 +1,6 @@
 ---
-layout: home
+layout: simple
 title: Teamcenter 2412 Installation Runbook
-nav_order: 1
 ---
 
 # Teamcenter 2412 Installation Runbook
