@@ -1,24 +1,24 @@
 {
-  "key": "TC03WfMAP0",
-  "token": "WindowsFeatures",
-  "name": "Windows Features",
+  "key": "TC05PiMAP0",
+  "token": "PreInstallChecklist",
+  "name": "Pre-Install Checklist",
   "created": "2026-04-23T00:00:00.000Z",
   "list": true,
-  "publishFileName": "03-windows-features",
-  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ Windows Features/WindowsFeatures.tsmap",
-  "iText": "Link to 'Windows Features'",
+  "publishFileName": "05-pre-install-checklist",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ Pre-Install Checklist/Pre-Install Checklist.tsmap",
+  "iText": "Link to 'Pre-Install Checklist'",
   "___rΩΩt___": {
-    "key": "TC03WfST01",
+    "key": "TC05PiST01",
     "isLeaf": true
   },
   "___αssεts___": [
     {
-      "key": "δ-TC03WfST01",
-      "relativePath": "./δ steps/δ-TC03WfST01.tsstp"
+      "key": "δ-TC05PiST01",
+      "relativePath": "./δ steps/δ-TC05PiST01.tsstp"
     }
   ],
   "___εdit___": {
-    "id": "tc03wfmap",
+    "id": "tc05pimap",
     "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
     "ticks": 1745366400000
   }
