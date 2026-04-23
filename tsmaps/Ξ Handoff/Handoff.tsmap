@@ -2,10 +2,10 @@
   "key": "TC10HaMAP0",
   "token": "Handoff",
   "name": "Handoff",
-  "created": "2026-04-23T00:00:00.000Z",
+  "created": "2026-04-23T18:34:25.477Z",
   "list": true,
   "publishFileName": "10-handoff",
-  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 10 Handoff/Handoff.tsmap",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ Handoff/Handoff.tsmap",
   "iText": "Link to 'Handoff'",
   "___rΩΩt___": {
     "key": "TC10HaST01",
@@ -19,8 +19,14 @@
     ]
   },
   "___αssεts___": [
-    { "key": "δ-TC10HaST01", "relativePath": "./δ steps/δ-TC10HaST01.tsstp" },
-    { "key": "δ-TC10HaST02", "relativePath": "./δ steps/δ-TC10HaST02.tsstp" }
+    {
+      "key": "δ-TC10HaST01",
+      "relativePath": "./δ steps/δ-TC10HaST01.tsstp"
+    },
+    {
+      "key": "δ-TC10HaST02",
+      "relativePath": "./δ steps/δ-TC10HaST02.tsstp"
+    }
   ],
   "___εdit___": {
     "id": "tc10hamap",

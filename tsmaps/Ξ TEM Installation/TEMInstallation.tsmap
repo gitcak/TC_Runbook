@@ -5,7 +5,7 @@
   "created": "2026-04-23T00:00:00.000Z",
   "list": true,
   "publishFileName": "06-tem-installation",
-  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 06 TEM Installation/TEMInstallation.tsmap",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ TEM Installation/TEMInstallation.tsmap",
   "iText": "Link to 'TEM Installation'",
   "___rΩΩt___": {
     "key": "TC06TiST01",
@@ -82,17 +82,50 @@
     ]
   },
   "___αssεts___": [
-    { "key": "δ-TC06TiST01", "relativePath": "./δ steps/δ-TC06TiST01.tsstp" },
-    { "key": "δ-TC06TiST02", "relativePath": "./δ steps/δ-TC06TiST02.tsstp" },
-    { "key": "δ-TC06TiST03", "relativePath": "./δ steps/δ-TC06TiST03.tsstp" },
-    { "key": "δ-TC06TiST04", "relativePath": "./δ steps/δ-TC06TiST04.tsstp" },
-    { "key": "δ-TC06TiST05", "relativePath": "./δ steps/δ-TC06TiST05.tsstp" },
-    { "key": "δ-TC06TiST06", "relativePath": "./δ steps/δ-TC06TiST06.tsstp" },
-    { "key": "δ-TC06TiST07", "relativePath": "./δ steps/δ-TC06TiST07.tsstp" },
-    { "key": "δ-TC06TiST08", "relativePath": "./δ steps/δ-TC06TiST08.tsstp" },
-    { "key": "δ-TC06TiST09", "relativePath": "./δ steps/δ-TC06TiST09.tsstp" },
-    { "key": "δ-TC06TiST10", "relativePath": "./δ steps/δ-TC06TiST10.tsstp" },
-    { "key": "δ-TC06TiST11", "relativePath": "./δ steps/δ-TC06TiST11.tsstp" }
+    {
+      "key": "δ-TC06TiST01",
+      "relativePath": "./δ steps/δ-TC06TiST01.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST02",
+      "relativePath": "./δ steps/δ-TC06TiST02.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST03",
+      "relativePath": "./δ steps/δ-TC06TiST03.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST04",
+      "relativePath": "./δ steps/δ-TC06TiST04.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST05",
+      "relativePath": "./δ steps/δ-TC06TiST05.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST06",
+      "relativePath": "./δ steps/δ-TC06TiST06.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST07",
+      "relativePath": "./δ steps/δ-TC06TiST07.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST08",
+      "relativePath": "./δ steps/δ-TC06TiST08.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST09",
+      "relativePath": "./δ steps/δ-TC06TiST09.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST10",
+      "relativePath": "./δ steps/δ-TC06TiST10.tsstp"
+    },
+    {
+      "key": "δ-TC06TiST11",
+      "relativePath": "./δ steps/δ-TC06TiST11.tsstp"
+    }
   ],
   "___εdit___": {
     "id": "tc06timap",

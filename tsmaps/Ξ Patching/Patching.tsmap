@@ -2,17 +2,20 @@
   "key": "TC08PaMAP0",
   "token": "Patching",
   "name": "Patching",
-  "created": "2026-04-23T00:00:00.000Z",
+  "created": "2026-04-23T18:34:25.501Z",
   "list": true,
   "publishFileName": "08-patching",
-  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 08 Patching/Patching.tsmap",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ Patching/Patching.tsmap",
   "iText": "Link to 'Patching'",
   "___rΩΩt___": {
     "key": "TC08PaST01",
     "isLeaf": true
   },
   "___αssεts___": [
-    { "key": "δ-TC08PaST01", "relativePath": "./δ steps/δ-TC08PaST01.tsstp" }
+    {
+      "key": "δ-TC08PaST01",
+      "relativePath": "./δ steps/δ-TC08PaST01.tsstp"
+    }
   ],
   "___εdit___": {
     "id": "tc08pamap",

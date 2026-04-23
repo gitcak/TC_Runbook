@@ -2,10 +2,10 @@
   "key": "TC11TrMAP0",
   "token": "Troubleshooting",
   "name": "Troubleshooting",
-  "created": "2026-04-23T00:00:00.000Z",
+  "created": "2026-04-23T18:34:25.521Z",
   "list": true,
   "publishFileName": "11-troubleshooting",
-  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 11 Troubleshooting/Troubleshooting.tsmap",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ Troubleshooting/Troubleshooting.tsmap",
   "iText": "Link to 'Troubleshooting'",
   "___rΩΩt___": {
     "key": "TC11TrST01",
@@ -26,9 +26,18 @@
     ]
   },
   "___αssεts___": [
-    { "key": "δ-TC11TrST01", "relativePath": "./δ steps/δ-TC11TrST01.tsstp" },
-    { "key": "δ-TC11TrST02", "relativePath": "./δ steps/δ-TC11TrST02.tsstp" },
-    { "key": "δ-TC11TrST03", "relativePath": "./δ steps/δ-TC11TrST03.tsstp" }
+    {
+      "key": "δ-TC11TrST01",
+      "relativePath": "./δ steps/δ-TC11TrST01.tsstp"
+    },
+    {
+      "key": "δ-TC11TrST02",
+      "relativePath": "./δ steps/δ-TC11TrST02.tsstp"
+    },
+    {
+      "key": "δ-TC11TrST03",
+      "relativePath": "./δ steps/δ-TC11TrST03.tsstp"
+    }
   ],
   "___εdit___": {
     "id": "tc11trmap",

@@ -2,10 +2,10 @@
     "organisation": "",
     "contact": "",
     "gitConfig": {
-        "owner": "",
+        "owner": "gitcak",
         "repo": "TC_Runbook",
         "branch": "main",
-        "publishUrl": ""
+        "publishUrl": "https://gitcak.github.io/TC_Runbook/"
     },
     "repoConfig": {
         "assetFolderName": "δ steps",
@@ -15,6 +15,6 @@
         "mapsFolderName": "tsmaps"
     },
     "devConfig": {
-        "forceJsDelivr": true
+        "forceJsDelivr": false
     }
 }

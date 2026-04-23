@@ -5,7 +5,7 @@
   "created": "2026-04-23T00:00:00.000Z",
   "list": true,
   "publishFileName": "02-software-prerequisites",
-  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 02 Software Prerequisites/SoftwarePrerequisites.tsmap",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ Software Prerequisites/SoftwarePrerequisites.tsmap",
   "iText": "Link to 'Software Prerequisites'",
   "___rΩΩt___": {
     "key": "TC02PrST01",
@@ -33,10 +33,22 @@
     ]
   },
   "___αssεts___": [
-    { "key": "δ-TC02PrST01", "relativePath": "./δ steps/δ-TC02PrST01.tsstp" },
-    { "key": "δ-TC02PrST02", "relativePath": "./δ steps/δ-TC02PrST02.tsstp" },
-    { "key": "δ-TC02PrST03", "relativePath": "./δ steps/δ-TC02PrST03.tsstp" },
-    { "key": "δ-TC02PrST04", "relativePath": "./δ steps/δ-TC02PrST04.tsstp" }
+    {
+      "key": "δ-TC02PrST01",
+      "relativePath": "./δ steps/δ-TC02PrST01.tsstp"
+    },
+    {
+      "key": "δ-TC02PrST02",
+      "relativePath": "./δ steps/δ-TC02PrST02.tsstp"
+    },
+    {
+      "key": "δ-TC02PrST03",
+      "relativePath": "./δ steps/δ-TC02PrST03.tsstp"
+    },
+    {
+      "key": "δ-TC02PrST04",
+      "relativePath": "./δ steps/δ-TC02PrST04.tsstp"
+    }
   ],
   "___εdit___": {
     "id": "tc02prmap",

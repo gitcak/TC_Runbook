@@ -2,10 +2,10 @@
   "key": "TC01OvMAP0",
   "token": "Overview",
   "name": "Overview",
-  "created": "2026-04-23T00:00:00.000Z",
+  "created": "2026-04-23T18:34:25.095Z",
   "list": true,
   "publishFileName": "01-overview",
-  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 01 Overview/Overview.tsmap",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ Overview/Overview.tsmap",
   "iText": "Link to 'Overview'",
   "___rΩΩt___": {
     "key": "TC01OvST01",
@@ -26,9 +26,18 @@
     ]
   },
   "___αssεts___": [
-    { "key": "δ-TC01OvST01", "relativePath": "./δ steps/δ-TC01OvST01.tsstp" },
-    { "key": "δ-TC01OvST02", "relativePath": "./δ steps/δ-TC01OvST02.tsstp" },
-    { "key": "δ-TC01OvST03", "relativePath": "./δ steps/δ-TC01OvST03.tsstp" }
+    {
+      "key": "δ-TC01OvST01",
+      "relativePath": "./δ steps/δ-TC01OvST01.tsstp"
+    },
+    {
+      "key": "δ-TC01OvST02",
+      "relativePath": "./δ steps/δ-TC01OvST02.tsstp"
+    },
+    {
+      "key": "δ-TC01OvST03",
+      "relativePath": "./δ steps/δ-TC01OvST03.tsstp"
+    }
   ],
   "___εdit___": {
     "id": "tc01ovmap",

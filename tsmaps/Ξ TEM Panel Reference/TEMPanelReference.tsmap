@@ -5,7 +5,7 @@
   "created": "2026-04-23T00:00:00.000Z",
   "list": true,
   "publishFileName": "07-tem-panel-reference",
-  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 07 TEM Panel Reference/TEMPanelReference.tsmap",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ TEM Panel Reference/TEMPanelReference.tsmap",
   "iText": "Link to 'TEM Panel Reference'",
   "___rΩΩt___": {
     "key": "TC07TpST01",
@@ -40,11 +40,26 @@
     ]
   },
   "___αssεts___": [
-    { "key": "δ-TC07TpST01", "relativePath": "./δ steps/δ-TC07TpST01.tsstp" },
-    { "key": "δ-TC07TpST02", "relativePath": "./δ steps/δ-TC07TpST02.tsstp" },
-    { "key": "δ-TC07TpST03", "relativePath": "./δ steps/δ-TC07TpST03.tsstp" },
-    { "key": "δ-TC07TpST04", "relativePath": "./δ steps/δ-TC07TpST04.tsstp" },
-    { "key": "δ-TC07TpST05", "relativePath": "./δ steps/δ-TC07TpST05.tsstp" }
+    {
+      "key": "δ-TC07TpST01",
+      "relativePath": "./δ steps/δ-TC07TpST01.tsstp"
+    },
+    {
+      "key": "δ-TC07TpST02",
+      "relativePath": "./δ steps/δ-TC07TpST02.tsstp"
+    },
+    {
+      "key": "δ-TC07TpST03",
+      "relativePath": "./δ steps/δ-TC07TpST03.tsstp"
+    },
+    {
+      "key": "δ-TC07TpST04",
+      "relativePath": "./δ steps/δ-TC07TpST04.tsstp"
+    },
+    {
+      "key": "δ-TC07TpST05",
+      "relativePath": "./δ steps/δ-TC07TpST05.tsstp"
+    }
   ],
   "___εdit___": {
     "id": "tc07tpmap",

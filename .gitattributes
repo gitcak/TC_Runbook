@@ -8,3 +8,7 @@
 *.tsstp text eol=lf
 *.tsvar text eol=lf
 *.tsbnk text eol=lf
+
+*.tsfrg text eol=lf
+*.tsgde text eol=lf
+*.tsoln text eol=lf

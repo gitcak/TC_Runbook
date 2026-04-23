@@ -5,7 +5,7 @@
   "created": "2026-04-23T00:00:00.000Z",
   "list": true,
   "publishFileName": "04-operator-worksheet",
-  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 04 Operator Worksheet/OperatorWorksheet.tsmap",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ Operator Worksheet/OperatorWorksheet.tsmap",
   "iText": "Link to 'Operator Worksheet'",
   "___rΩΩt___": {
     "key": "TC04OwST01",
@@ -19,8 +19,14 @@
     ]
   },
   "___αssεts___": [
-    { "key": "δ-TC04OwST01", "relativePath": "./δ steps/δ-TC04OwST01.tsstp" },
-    { "key": "δ-TC04OwST02", "relativePath": "./δ steps/δ-TC04OwST02.tsstp" }
+    {
+      "key": "δ-TC04OwST01",
+      "relativePath": "./δ steps/δ-TC04OwST01.tsstp"
+    },
+    {
+      "key": "δ-TC04OwST02",
+      "relativePath": "./δ steps/δ-TC04OwST02.tsstp"
+    }
   ],
   "___εdit___": {
     "id": "tc04owmap",
