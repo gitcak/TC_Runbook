@@ -1,0 +1,70 @@
+## Step 11 — Finish TEM and Capture the Result
+
+### FinalOKPanel
+
+Before clicking **Start**:
+
+- Review the complete summary of all selections
+- Confirm every value matches the operator worksheet
+- If anything is wrong, go back — you cannot change these values after install begins
+
+### ExecutionPanel
+
+During installation:
+
+- Use `Show Details` to see the active step and any errors
+- Do not close TEM during the installation run
+
+### After TEM Completes
+
+#### Evidence to Capture
+
+```powershell
+$stamp = Get-Date -Format 'yyyy-MM-dd_HHmmss'
+
+Get-Service MSSQLSERVER,W3SVC,'Teamcenter Server Manager TCFISHER_PoolA' |
+  Out-File "C:\TC_AI\logs\${stamp}_services_post.txt"
+
+Get-NetTCPConnection -State Listen |
+  Sort-Object LocalPort |
+  Out-File "C:\TC_AI\logs\${stamp}_ports_post.txt"
+
+Import-Module WebAdministration
+Get-Website | Out-File "C:\TC_AI\logs\${stamp}_iis_websites_post.txt"
+Get-WebApplication | Out-File "C:\TC_AI\logs\${stamp}_iis_webapps_post.txt"
+
+Copy-Item C:\TC2412\install\configuration.xml `
+  "C:\TC_AI\logs\${stamp}_configuration.xml"
+```
+
+#### Success Evidence for This Host Pattern
+
+| Check | Expected |
+|-------|----------|
+| `C:\TC2412\install\configuration.xml` | Exists and records the installed features |
+| WSDL endpoint | `http://server2019tc/tc/services/ServiceDispatcher?wsdl` returns `200` |
+| Server Manager service | `Teamcenter Server Manager TCFISHER_PoolA` is `Running` |
+| No unresolved live install error | Current logs show no active failure |
+
+#### TEM Recovery State Check
+
+If TEM later reopens a failure dialog even though the deploy succeeded, do not retry blindly:
+
+```powershell
+cmd /c "C:\TC2412\install\tem.bat -restart -config=TCFISHER -test"
+```
+
+Expected after a clean install:
+```
+Configuration TCFISHER is not in recovery mode
+```
+
+If TEM still reports recovery mode, follow the procedure in `notes/2026-04-16_tem_stale_recovery_state_cleanup.md`.
+
+### Checkpoint
+
+- [ ] TEM reports successful completion
+- [ ] `configuration.xml` is saved and copied to `C:\TC_AI\logs`
+- [ ] TEM primary log path is recorded
+- [ ] Service state and URL checks are captured
+- [ ] No unresolved live install error remains

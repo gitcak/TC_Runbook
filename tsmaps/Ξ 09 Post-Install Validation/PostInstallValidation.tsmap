@@ -1,0 +1,22 @@
+{
+  "key": "TC09PvMAP0",
+  "token": "PostInstallValidation",
+  "name": "Post-Install Validation",
+  "created": "2026-04-23T00:00:00.000Z",
+  "list": true,
+  "publishFileName": "09-post-install-validation",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 09 Post-Install Validation/PostInstallValidation.tsmap",
+  "iText": "Link to 'Post-Install Validation'",
+  "___rΩΩt___": {
+    "key": "TC09PvST01",
+    "isLeaf": true
+  },
+  "___αssεts___": [
+    { "key": "δ-TC09PvST01", "relativePath": "./δ steps/δ-TC09PvST01.tsstp" }
+  ],
+  "___εdit___": {
+    "id": "tc09pvmap",
+    "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
+    "ticks": 1745366400000
+  }
+}

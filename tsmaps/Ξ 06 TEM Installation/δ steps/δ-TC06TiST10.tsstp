@@ -1,0 +1,57 @@
+## Step 10 — Server Manager Settings
+
+Configure the 4-tier pool manager using the validated values from `serverPool.properties`.
+
+### ServerMgrJ2eePanel Values
+
+| Setting | Validated value |
+|---------|----------------|
+| Pool ID | `PoolA` |
+| Cluster ID | `TcCluster` |
+| Assignment Service Port | `8086` |
+| MUX Port | `8087` |
+| JMX RMI Port | `8088` |
+| Max Servers in Sub-Pool | `30` |
+| Min Warm Servers | `1` |
+| Process Target | `0700 3, 1700 2` |
+| Logins per Minute | `0` |
+| Startup Mode | `Service/Daemon` |
+
+### Timeout Values
+
+| Timeout type | Value (seconds) |
+|-------------|-----------------|
+| Hard edit | `28800` |
+| Hard read | `28800` |
+| Hard stateless | `28800` |
+| Soft edit | `28800` |
+| Soft read | `28800` |
+| Soft stateless | `1200` |
+
+### MultiplexingProxyPanel
+
+| Setting | Value |
+|---------|-------|
+| MUX Port | `8087` |
+| TECS Admin Port | `8084` |
+
+### Database Connectivity
+
+Server Manager uses the same SQL Server instance:
+
+- DB platform: `MSSQL`
+- DB host: `server2019tc[1433]`
+
+### Installation Guidance
+
+- Keep Cluster ID unique if multiple Teamcenter deployments will ever share infrastructure
+- Keep Pool ID unique within the cluster
+- Record all three ports before install so firewall and conflict checks are straightforward
+
+### Checkpoint
+
+- [ ] Assignment port is `8086`
+- [ ] MUX port is `8087`
+- [ ] JMX RMI port is `8088`
+- [ ] Cluster ID and Pool ID are intentional and recorded
+- [ ] Values align with the target client and web-tier topology

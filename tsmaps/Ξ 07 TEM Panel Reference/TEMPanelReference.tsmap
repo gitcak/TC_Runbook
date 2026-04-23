@@ -1,0 +1,54 @@
+{
+  "key": "TC07TpMAP0",
+  "token": "TEMPanelReference",
+  "name": "TEM Panel Reference",
+  "created": "2026-04-23T00:00:00.000Z",
+  "list": true,
+  "publishFileName": "07-tem-panel-reference",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 07 TEM Panel Reference/TEMPanelReference.tsmap",
+  "iText": "Link to 'TEM Panel Reference'",
+  "___rΩΩt___": {
+    "key": "TC07TpST01",
+    "nodes": [
+      {
+        "key": "TC07TpST02",
+        "order": 1,
+        "option": "Next",
+        "nodes": [
+          {
+            "key": "TC07TpST03",
+            "order": 1,
+            "option": "Next",
+            "nodes": [
+              {
+                "key": "TC07TpST04",
+                "order": 1,
+                "option": "Next",
+                "nodes": [
+                  {
+                    "key": "TC07TpST05",
+                    "order": 1,
+                    "option": "Next",
+                    "isLeaf": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "___αssεts___": [
+    { "key": "δ-TC07TpST01", "relativePath": "./δ steps/δ-TC07TpST01.tsstp" },
+    { "key": "δ-TC07TpST02", "relativePath": "./δ steps/δ-TC07TpST02.tsstp" },
+    { "key": "δ-TC07TpST03", "relativePath": "./δ steps/δ-TC07TpST03.tsstp" },
+    { "key": "δ-TC07TpST04", "relativePath": "./δ steps/δ-TC07TpST04.tsstp" },
+    { "key": "δ-TC07TpST05", "relativePath": "./δ steps/δ-TC07TpST05.tsstp" }
+  ],
+  "___εdit___": {
+    "id": "tc07tpmap",
+    "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
+    "ticks": 1745366400000
+  }
+}

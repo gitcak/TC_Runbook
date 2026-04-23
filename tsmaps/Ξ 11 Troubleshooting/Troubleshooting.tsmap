@@ -1,0 +1,38 @@
+{
+  "key": "TC11TrMAP0",
+  "token": "Troubleshooting",
+  "name": "Troubleshooting",
+  "created": "2026-04-23T00:00:00.000Z",
+  "list": true,
+  "publishFileName": "11-troubleshooting",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 11 Troubleshooting/Troubleshooting.tsmap",
+  "iText": "Link to 'Troubleshooting'",
+  "___rΩΩt___": {
+    "key": "TC11TrST01",
+    "nodes": [
+      {
+        "key": "TC11TrST02",
+        "order": 1,
+        "option": "Next",
+        "nodes": [
+          {
+            "key": "TC11TrST03",
+            "order": 1,
+            "option": "Next",
+            "isLeaf": true
+          }
+        ]
+      }
+    ]
+  },
+  "___αssεts___": [
+    { "key": "δ-TC11TrST01", "relativePath": "./δ steps/δ-TC11TrST01.tsstp" },
+    { "key": "δ-TC11TrST02", "relativePath": "./δ steps/δ-TC11TrST02.tsstp" },
+    { "key": "δ-TC11TrST03", "relativePath": "./δ steps/δ-TC11TrST03.tsstp" }
+  ],
+  "___εdit___": {
+    "id": "tc11trmap",
+    "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
+    "ticks": 1745366400000
+  }
+}

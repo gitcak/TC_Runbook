@@ -1,0 +1,51 @@
+## Purpose
+
+This runbook is the operator-facing technical reference for installing Teamcenter `2412` and patch level `2412.008` on Windows Server using Teamcenter Environment Manager (TEM).
+
+It is written for the **single-host Windows pattern** validated on `server2019tc`:
+
+- Microsoft SQL Server on the same host
+- IIS web tier under `Default Web Site`
+- Teamcenter 4-tier server manager
+- Teamcenter root at `C:\TC2412`
+- `TC_DATA` at `C:\tcdata`
+- Optional Active Workspace gateway on port `3000`
+
+---
+
+## How to Use This Runbook
+
+Use this guide when you need a practical install procedure rather than a general description.
+
+It supports three modes:
+
+| Mode | Use case |
+|------|----------|
+| Clean build | New Windows Server host using the validated single-host pattern |
+| Rebuild | Recreating the current `server2019tc` environment |
+| Audit | Reviewing an existing host before rerunning TEM or patching |
+
+**Operator expectations:**
+
+- Validate actual machine state before each major step
+- Capture evidence as you go
+- Stop at documented hold points — do not click through TEM blindly
+- Use companion notes in `C:\TC_AI\notes` when live behavior differs from expected
+
+---
+
+## Primary Sources
+
+Local media and configuration files used to build this guide:
+
+- `C:\tc_media_files\tc2412_wntx64\tc2412_wntx64\Readme.html`
+- `C:\tc_media_files\tc2412_wntx64\tc2412_wntx64\version.properties`
+- `C:\tc_media_files\Tc2412.0008_wntx64\wntx64\version.properties`
+- `C:\TC2412\install\configuration.xml`
+- `C:\TC2412\pool_manager\confs\TCFISHER\serverPool.properties`
+- `C:\TC2412\microservices\gateway\config.json`
+
+Official Siemens documentation entry points:
+
+- [Teamcenter documentation](https://support.sw.siemens.com/en-US/product/282219420/documentation)
+- [Teamcenter downloads](https://support.sw.siemens.com/en-US/product/282219420/downloads)

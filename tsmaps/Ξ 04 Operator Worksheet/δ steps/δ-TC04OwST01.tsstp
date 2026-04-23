@@ -1,0 +1,58 @@
+## Build Profile Summary
+
+Use this section as the quick-reference build sheet during TEM.
+
+### Target Build
+
+| Area | Build value |
+|------|-------------|
+| Product release | `Teamcenter 2412` |
+| Target patch level | `2412.008` |
+| Deployment model | Single-host Windows 4-tier |
+| Teamcenter root | `C:\TC2412` |
+| Teamcenter data | `C:\tcdata` |
+| Database platform | Microsoft SQL Server |
+| SQL connectivity | Fixed port `1433` |
+| Web tier | IIS under `Default Web Site` |
+| Web application | `/tc` |
+| Server Manager model | Windows service |
+| Server Manager pool | `TCFISHER_PoolA` style |
+| Optional | Active Workspace gateway on `3000` |
+
+### Base Install Feature Set
+
+Install these first for the core platform:
+
+- `Teamcenter Foundation`
+- `Server Manager`
+- `Web Tier for .NET`
+- `FOSS Repository`
+
+Add only when explicitly in scope:
+
+- `Active Workspace Gateway`
+- `Active Workspace Client`
+- `Microservices Framework`
+- `BMIDE`
+- Richer product-family bundles from `group_*.xml`
+
+### Exact TEM Decisions for This Pattern
+
+| TEM decision point | Recommended selection |
+|--------------------|-----------------------|
+| Startup action | `Install` |
+| Application | `Teamcenter` |
+| New or existing configuration | New configuration for a clean build |
+| Solution entry point | `solution_corpserv.xml` |
+| Foundation choice | `Create and populate database, create new data directory` |
+| Database vendor | `Microsoft SQL Server` |
+| SQL connection method | `Port` |
+| SQL port | `1433` |
+| `TC_DATA` path | `C:\tcdata` |
+| IIS web site | `Default Web Site` |
+| IIS virtual directory | `tc` |
+| Primary 4-tier URL | `http://server2019tc/tc` |
+| Server Manager assignment port | `8086` |
+| Server Manager MUX port | `8087` |
+| Server Manager JMX RMI port | `8088` |
+| After base install | Apply `2412.008` patch |

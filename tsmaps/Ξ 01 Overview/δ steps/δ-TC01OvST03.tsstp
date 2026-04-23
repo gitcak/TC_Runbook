@@ -1,0 +1,51 @@
+## Document Map
+
+Work through these sections in order for a complete installation:
+
+| # | Section | Purpose |
+|---|---------|---------|
+| 1 | Overview | Topology, scope, and host baseline |
+| 2 | Software Prerequisites | Media, Java, SQL Server, IIS |
+| 3 | Windows Features | Required IIS and .NET features |
+| 4 | Operator Worksheet | Values to collect before TEM |
+| 5 | Pre-Install Checklist | Final checks before opening TEM |
+| 6 | TEM Installation | Step-by-step TEM wizard (Steps 1–11) |
+| 7 | TEM Panel Reference | Field-level reference for TEM panels |
+| 8 | Patching | Applying patch 2412.008 |
+| 9 | Post-Install Validation | Service, port, IIS, and URL checks |
+| 10 | Handoff | Handoff checklist and known conventions |
+| 11 | Troubleshooting | TEM state, server manager, AWC gateway |
+
+---
+
+## Quick Start
+
+If you already know the topology and only need the working order:
+
+1. Install Windows IIS/.NET features
+2. Install and validate SQL Server
+3. Install Java 17 and verify the JRE path
+4. Expand Teamcenter base and `2412.008` patch media locally
+5. Create `TC_ROOT` (`C:\TC2412`) and `TC_DATA` (`C:\tcdata`)
+6. Launch TEM from the base media with the explicit `-jre` path:
+   ```powershell
+   cmd /c "\"C:\tc_media_files\tc2412_wntx64\tc2412_wntx64\tem.bat\" -jre \"C:\java\jre\""
+   ```
+7. Install Foundation, Server Manager, Web Tier for .NET, and FOSS Repository
+8. Apply patch `2412.008`
+9. Validate IIS, WSDL, server-manager ports, and optional AWC
+10. Archive logs and notes under `C:\TC_AI`
+
+---
+
+## Companion Notes
+
+For machine-specific recovery and troubleshooting:
+
+| Topic | File |
+|-------|------|
+| Server manager and RAC login repair | `C:\TC_AI\notes\2026-04-15_server-manager_login_fix.md` |
+| RAC client cache recovery | `C:\TC_AI\notes\2026-04-15_rac_client_cache_known_fix.md` |
+| AWC gateway and publish repair | `C:\TC_AI\notes\2026-04-15_active_workspace_validation_and_repair.md` |
+| TEM stale recovery cleanup | `C:\TC_AI\notes\2026-04-16_tem_stale_recovery_state_cleanup.md` |
+| Feature add-on cheat sheet | `C:\TC_AI\notes\2026-04-17_teamcenter_setup_install_workarounds_cheat_sheet.md` |

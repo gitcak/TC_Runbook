@@ -1,0 +1,30 @@
+{
+  "key": "TC10HaMAP0",
+  "token": "Handoff",
+  "name": "Handoff",
+  "created": "2026-04-23T00:00:00.000Z",
+  "list": true,
+  "publishFileName": "10-handoff",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 10 Handoff/Handoff.tsmap",
+  "iText": "Link to 'Handoff'",
+  "___rΩΩt___": {
+    "key": "TC10HaST01",
+    "nodes": [
+      {
+        "key": "TC10HaST02",
+        "order": 1,
+        "option": "Next",
+        "isLeaf": true
+      }
+    ]
+  },
+  "___αssεts___": [
+    { "key": "δ-TC10HaST01", "relativePath": "./δ steps/δ-TC10HaST01.tsstp" },
+    { "key": "δ-TC10HaST02", "relativePath": "./δ steps/δ-TC10HaST02.tsstp" }
+  ],
+  "___εdit___": {
+    "id": "tc10hamap",
+    "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
+    "ticks": 1745366400000
+  }
+}

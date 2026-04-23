@@ -1,0 +1,51 @@
+## Java Requirements
+
+### Minimum Version
+
+Both the base and patch `version.properties` files specify:
+
+```
+min_supported_java_version=17.0.3
+```
+
+Current validated runtime on this host: **Temurin 17.0.18**
+
+### Local Java Layout
+
+| Path | Contents |
+|------|----------|
+| `C:\java\jre` | JRE used to launch TEM and run Teamcenter |
+| `C:\java\jdk` | JDK used for supporting tools |
+
+### How TEM Finds Java
+
+TEM searches for a Java runtime in this order (from `tem.bat`):
+
+1. `-jre "<path>"` argument on the command line — **always use this**
+2. `JRE64_HOME` environment variable
+3. `JRE_HOME` environment variable
+4. After installation: `TC_JRE_HOME` from `tem_init.bat`
+
+The live configuration on this host:
+- `C:\TC2412\install\tem_init.bat` sets `TC_JRE_HOME=C:\java\jre`
+
+### Recommended Practice
+
+- Install both JDK and JRE under `C:\java`
+- **Always launch TEM with** `-jre "C:\java\jre"` during base installation
+- Do not rely on `PATH` alone — TEM will use a wrong or missing Java silently
+
+### Validation Command
+
+```powershell
+Get-Content C:\java\jre\release
+Get-Content C:\java\jdk\release
+```
+
+Confirm the `JAVA_VERSION` line shows `17.0.3` or higher.
+
+Also verify `bin\java.exe` exists:
+
+```powershell
+Test-Path "C:\java\jre\bin\java.exe"
+```

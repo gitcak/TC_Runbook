@@ -1,0 +1,31 @@
+## Step 2 — Validate SQL Server Before TEM
+
+Run these checks before opening TEM:
+
+```powershell
+Get-Service MSSQLSERVER
+Get-NetTCPConnection -State Listen | Where-Object LocalPort -eq 1433
+```
+
+Expected on this host:
+
+| Check | Expected result |
+|-------|----------------|
+| `MSSQLSERVER` service | `Running` |
+| TCP `1433` | Listening |
+
+For the single-host pattern, the documented baseline is:
+
+| Setting | Value |
+|---------|-------|
+| SQL host | `server2019tc` |
+| SQL port | `1433` |
+| Instance type | Default instance |
+
+### Checkpoint
+
+- [ ] SQL service is `Running`
+- [ ] SQL listener on port `1433` is confirmed
+- [ ] Host, port, and authentication method are known before TEM asks for them
+
+> **Note:** On this host, a previous SQL blocker was caused by an **expired SQL Server Evaluation edition**, not missing SSL. If SQL connectivity fails, check the edition and license state before assuming a network problem.

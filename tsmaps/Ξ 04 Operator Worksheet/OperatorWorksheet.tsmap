@@ -1,0 +1,30 @@
+{
+  "key": "TC04OwMAP0",
+  "token": "OperatorWorksheet",
+  "name": "Operator Worksheet",
+  "created": "2026-04-23T00:00:00.000Z",
+  "list": true,
+  "publishFileName": "04-operator-worksheet",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 04 Operator Worksheet/OperatorWorksheet.tsmap",
+  "iText": "Link to 'Operator Worksheet'",
+  "___rΩΩt___": {
+    "key": "TC04OwST01",
+    "nodes": [
+      {
+        "key": "TC04OwST02",
+        "order": 1,
+        "option": "Next",
+        "isLeaf": true
+      }
+    ]
+  },
+  "___αssεts___": [
+    { "key": "δ-TC04OwST01", "relativePath": "./δ steps/δ-TC04OwST01.tsstp" },
+    { "key": "δ-TC04OwST02", "relativePath": "./δ steps/δ-TC04OwST02.tsstp" }
+  ],
+  "___εdit___": {
+    "id": "tc04owmap",
+    "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
+    "ticks": 1745366400000
+  }
+}

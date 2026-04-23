@@ -1,0 +1,60 @@
+## Known Conventions and Common Failure Triggers
+
+### Known Good Conventions — Keep These
+
+These are validated working settings on this host. Do not change them without a verified reason.
+
+| Convention | Detail |
+|-----------|--------|
+| `oci.dll` disabled | Keep `C:\TC2412\bin\oci.dll.codex-disabled` disabled |
+| AWC gateway `/tc` route | Must point to `http://server2019tc/tc` — not `:7001/tc` |
+| Host names in URLs | Use host names, not raw IP addresses |
+| `pom_transmit` | `C:\TC2412\pom_transmit` must exist — it is required by the deploy path |
+
+### Validated Endpoints
+
+| URL | Expected |
+|-----|----------|
+| `http://server2019tc/tc/services/ServiceDispatcher?wsdl` | `200` |
+| `http://server2019tc:3000/` | `200` |
+| `http://server2019tc:3000/tc.html` | `200` |
+
+The following look suspicious but are **not errors** on this host:
+
+- `http://server2019tc/tc` — redirects to `/tc/`
+- `http://server2019tc/tc/` — returns IIS `403.14`
+- `http://server2019tc:3000/tc/` — mirrors the `403.14`
+
+Use `:3000/` and `:3000/tc.html` as the real AWC entrypoints.
+
+---
+
+### Common Failure Triggers to Avoid
+
+| Trigger | What to do instead |
+|---------|-------------------|
+| Launching TEM without valid Java 17 | Always use `-jre "C:\java\jre"` explicitly |
+| Setting `TC_DATA` as a system environment variable | Never set `TC_DATA` in the OS — TEM manages it internally |
+| Wrong IIS site or shared app pool | Verify IIS configuration before TEM runs |
+| Trusting TEM popup state without reading the log | Read the current log before clicking Retry |
+| Treating `404` on AWC root as a base install failure | Diagnose the gateway route first — check `config.json` |
+| Copying old `:7001` examples into the gateway route | Verify the `/tc` target is `http://server2019tc/tc` |
+
+### Best Rollback Point
+
+Latest safe pre-change backup (post feature add-ons, 2026-04-17):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File C:\TC_AI\scripts\Restore-TCPreChangeBackup.ps1 `
+  -BackupRoot C:\TC_AI\artifacts\pre_change_20260417_153434_post_feature_addons_final
+```
+
+### Key Companion Notes
+
+| Topic | File |
+|-------|------|
+| Server Manager and RAC login repair | `notes/2026-04-15_server-manager_login_fix.md` |
+| RAC client cache recovery | `notes/2026-04-15_rac_client_cache_known_fix.md` |
+| AWC gateway repair | `notes/2026-04-15_active_workspace_validation_and_repair.md` |
+| TEM stale recovery cleanup | `notes/2026-04-16_tem_stale_recovery_state_cleanup.md` |
+| Feature add-on workflow | `notes/2026-04-17_feature_addons_execution_and_validation.md` |

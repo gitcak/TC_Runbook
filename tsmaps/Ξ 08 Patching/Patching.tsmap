@@ -1,0 +1,22 @@
+{
+  "key": "TC08PaMAP0",
+  "token": "Patching",
+  "name": "Patching",
+  "created": "2026-04-23T00:00:00.000Z",
+  "list": true,
+  "publishFileName": "08-patching",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 08 Patching/Patching.tsmap",
+  "iText": "Link to 'Patching'",
+  "___rΩΩt___": {
+    "key": "TC08PaST01",
+    "isLeaf": true
+  },
+  "___αssεts___": [
+    { "key": "δ-TC08PaST01", "relativePath": "./δ steps/δ-TC08PaST01.tsstp" }
+  ],
+  "___εdit___": {
+    "id": "tc08pamap",
+    "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
+    "ticks": 1745366400000
+  }
+}

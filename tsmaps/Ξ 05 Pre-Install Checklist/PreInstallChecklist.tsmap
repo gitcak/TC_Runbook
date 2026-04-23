@@ -1,0 +1,22 @@
+{
+  "key": "TC05PiMAP0",
+  "token": "PreInstallChecklist",
+  "name": "Pre-Install Checklist",
+  "created": "2026-04-23T00:00:00.000Z",
+  "list": true,
+  "publishFileName": "05-pre-install-checklist",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 05 Pre-Install Checklist/PreInstallChecklist.tsmap",
+  "iText": "Link to 'Pre-Install Checklist'",
+  "___rΩΩt___": {
+    "key": "TC05PiST01",
+    "isLeaf": true
+  },
+  "___αssεts___": [
+    { "key": "δ-TC05PiST01", "relativePath": "./δ steps/δ-TC05PiST01.tsstp" }
+  ],
+  "___εdit___": {
+    "id": "tc05pimap",
+    "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
+    "ticks": 1745366400000
+  }
+}

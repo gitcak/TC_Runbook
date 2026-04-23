@@ -1,0 +1,21 @@
+{
+  "key": "TCRUNBOOKSHAREDV0",
+  "token": "TC Shared Variables",
+  "name": "TC Shared Variables",
+  "created": "2026-04-23T00:00:00.000Z",
+  "variables": [
+    { "key": "tcHost",        "value": "server2019tc" },
+    { "key": "tcVersion",     "value": "2412.008" },
+    { "key": "tcRoot",        "value": "C:\\TC2412" },
+    { "key": "tcData",        "value": "C:\\tcdata" },
+    { "key": "awGateway",     "value": "http://server2019tc:3000" },
+    { "key": "awPort",        "value": "3000" },
+    { "key": "poolPort",      "value": "8086" },
+    { "key": "sqlInstance",   "value": "MSSQLSERVER" },
+    { "key": "dbName",        "value": "Teamcenter" },
+    { "key": "tcUser",        "value": "infodba" },
+    { "key": "poolSvc",       "value": "Teamcenter Server Manager TCFISHER_PoolA" },
+    { "key": "iisPool",       "value": "DefaultAppPool" },
+    { "key": "siemensSupport","value": "https://support.sw.siemens.com" }
+  ]
+}

@@ -1,0 +1,54 @@
+## Handoff Checklist
+
+Before closing the install session, confirm these items are recorded and handed to the next operator or archived.
+
+### Installation Summary
+
+- [ ] Final Teamcenter version and patch level (`2412.0.0.8`)
+- [ ] Final `TC_ROOT`: `C:\TC2412`
+- [ ] Final `TC_DATA`: `C:\tcdata`
+- [ ] Final Teamcenter 4-tier URL: `http://server2019tc/tc`
+- [ ] SQL host and connection method: `server2019tc`, port `1433`
+- [ ] IIS site, app pool, and virtual directory: `Default Web Site`, `TcWebTierPool`, `tc`
+- [ ] Server Manager service name and ports: `Teamcenter Server Manager TCFISHER_PoolA`, `8086/8087/8088`
+
+### Evidence Archived
+
+- [ ] Primary install log location recorded
+- [ ] Patch log location recorded
+- [ ] Final `configuration.xml` copied to `C:\TC_AI\logs`
+- [ ] Service state snapshot saved
+
+### Deviations and Follow-Up
+
+- [ ] Any deviations from the validated `server2019tc` pattern are documented
+- [ ] Any unresolved warnings that still need follow-up are listed below
+
+---
+
+### Recommended Handoff Note Format
+
+Write a brief handoff note covering:
+
+1. **What was installed** — version, features, patch level
+2. **What was intentionally left out** — features deferred, topology choices
+3. **What was validated** — services confirmed, URLs tested
+4. **What still needs follow-up** — open warnings, deferred items
+5. **Where logs and saved configuration were stored** — paths under `C:\TC_AI`
+
+---
+
+### Recommended Operator Workflow for This Machine
+
+| Step | Action |
+|------|--------|
+| 1 | Install Windows features |
+| 2 | Install and validate SQL Server on `1433` |
+| 3 | Install Java 17 under `C:\java` |
+| 4 | Stage Teamcenter base and patch media under `C:\tc_media_files` |
+| 5 | Create `C:\TC2412` and `C:\tcdata` |
+| 6 | Launch TEM: `tem.bat -jre "C:\java\jre"` |
+| 7 | Install Foundation, Server Manager, Web Tier for .NET, FOSS Repository |
+| 8 | Apply patch `2412.008` |
+| 9 | Validate WSDL, IIS, services, and optional AWC |
+| 10 | Archive logs and notes under `C:\TC_AI` |

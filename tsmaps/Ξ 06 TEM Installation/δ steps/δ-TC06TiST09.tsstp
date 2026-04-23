@@ -1,0 +1,23 @@
+## Step 9 — 4-Tier Web Server Settings
+
+TEM's `MidtierServersPanel` expects a list of 4-tier server URIs for the rich client.
+
+### Primary URI for This Host Pattern
+
+```
+http://server2019tc/tc
+```
+
+### Recommendations
+
+- Enable gzip compression for responses — this is offered in the panel and reduces bandwidth for rich client sessions
+- Use the **final IIS URL**, not a temporary test port
+- Do not carry forward any old `7001` port example from earlier TEM installations on this host — the validated pattern uses IIS on port `80`
+
+### Checkpoint
+
+- [ ] The 4-tier URL entered in TEM is `http://server2019tc/tc`
+- [ ] No obsolete `:7001` port is carried forward
+- [ ] Gzip compression is enabled
+
+> **Host-specific note:** This host previously had a gateway route pointing to `http://server2019tc:7001/tc`. That was corrected to `http://server2019tc/tc`. If TEM shows a pre-populated URI with `:7001`, clear it before proceeding.

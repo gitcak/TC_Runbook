@@ -1,0 +1,30 @@
+## Step 6 — Foundation Panel Choice
+
+TEM presents four foundation options based on the current state of the database and `TC_DATA`.
+
+### Decision Table
+
+| Option | Use when |
+|--------|----------|
+| `Create and populate database, create new data directory` | **Clean new environment — use this for a fresh build** |
+| `Populate database, create new data directory` | Database exists but is empty |
+| `Create new data directory using existing populated database` | Database is already populated but `TC_DATA` does not exist |
+| `Use populated database and existing data directory` | Both database and `TC_DATA` already exist and should be reused |
+
+For a **brand-new single-host build**, choose:
+
+> **`Create and populate database, create new data directory`**
+
+### `TC_DATA` Panel
+
+TEM will also present `TcDataPanel` asking for the data directory:
+
+- Enter: `C:\tcdata`
+
+### Checkpoint
+
+- [ ] The selected foundation option matches the **real** current state of both the database and `TC_DATA`
+- [ ] You are not accidentally reusing a database from a previous install
+- [ ] `TC_DATA` path is `C:\tcdata`
+
+> **Warning:** If TEM proposes reusing an existing database or data directory that you did not intend to reuse, stop and verify. Continuing on the wrong choice may overwrite an existing environment or fail mid-install.

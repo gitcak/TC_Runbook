@@ -1,0 +1,46 @@
+{
+  "key": "TC02PrMAP0",
+  "token": "SoftwarePrerequisites",
+  "name": "Software Prerequisites",
+  "created": "2026-04-23T00:00:00.000Z",
+  "list": true,
+  "publishFileName": "02-software-prerequisites",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 02 Software Prerequisites/SoftwarePrerequisites.tsmap",
+  "iText": "Link to 'Software Prerequisites'",
+  "___rΩΩt___": {
+    "key": "TC02PrST01",
+    "nodes": [
+      {
+        "key": "TC02PrST02",
+        "order": 1,
+        "option": "Next",
+        "nodes": [
+          {
+            "key": "TC02PrST03",
+            "order": 1,
+            "option": "Next",
+            "nodes": [
+              {
+                "key": "TC02PrST04",
+                "order": 1,
+                "option": "Next",
+                "isLeaf": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "___αssεts___": [
+    { "key": "δ-TC02PrST01", "relativePath": "./δ steps/δ-TC02PrST01.tsstp" },
+    { "key": "δ-TC02PrST02", "relativePath": "./δ steps/δ-TC02PrST02.tsstp" },
+    { "key": "δ-TC02PrST03", "relativePath": "./δ steps/δ-TC02PrST03.tsstp" },
+    { "key": "δ-TC02PrST04", "relativePath": "./δ steps/δ-TC02PrST04.tsstp" }
+  ],
+  "___εdit___": {
+    "id": "tc02prmap",
+    "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
+    "ticks": 1745366400000
+  }
+}

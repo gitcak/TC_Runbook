@@ -1,0 +1,38 @@
+{
+  "key": "TC01OvMAP0",
+  "token": "Overview",
+  "name": "Overview",
+  "created": "2026-04-23T00:00:00.000Z",
+  "list": true,
+  "publishFileName": "01-overview",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Ξ 01 Overview/Overview.tsmap",
+  "iText": "Link to 'Overview'",
+  "___rΩΩt___": {
+    "key": "TC01OvST01",
+    "nodes": [
+      {
+        "key": "TC01OvST02",
+        "order": 1,
+        "option": "Next",
+        "nodes": [
+          {
+            "key": "TC01OvST03",
+            "order": 1,
+            "option": "Next",
+            "isLeaf": true
+          }
+        ]
+      }
+    ]
+  },
+  "___αssεts___": [
+    { "key": "δ-TC01OvST01", "relativePath": "./δ steps/δ-TC01OvST01.tsstp" },
+    { "key": "δ-TC01OvST02", "relativePath": "./δ steps/δ-TC01OvST02.tsstp" },
+    { "key": "δ-TC01OvST03", "relativePath": "./δ steps/δ-TC01OvST03.tsstp" }
+  ],
+  "___εdit___": {
+    "id": "tc01ovmap",
+    "editorID": "da_() => {\\n const extensions = vscode.extensions;\\n const docsAssember = extensions.getExtension('netoftrees.documentation-assembler');\\n if (docsAssember) {\\n return docsAssember.packageJSON.version;\\n }\\n return null;\\n }",
+    "ticks": 1745366400000
+  }
+}

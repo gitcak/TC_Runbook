@@ -1,0 +1,10 @@
+* text=auto
+
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.tsmap text eol=lf
+*.tsstp text eol=lf
+*.tsvar text eol=lf
+*.tsbnk text eol=lf

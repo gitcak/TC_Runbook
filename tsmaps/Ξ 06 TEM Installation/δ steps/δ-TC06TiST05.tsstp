@@ -1,0 +1,40 @@
+## Step 5 — Select the Installation Pattern
+
+In the `SelectionPanel`, select features for the core platform build.
+
+### Required Features (Install These First)
+
+| Feature | Purpose |
+|---------|---------|
+| `Teamcenter Foundation` | Core Teamcenter platform and database |
+| `Server Manager` | 4-tier application server pool |
+| `Web Tier for .NET` | IIS-based web tier |
+| `FOSS Repository` | Open-source component repository |
+
+Add optional features only when they are **explicitly in scope** for this build:
+
+| Optional Feature | When to add |
+|-----------------|-------------|
+| `Active Workspace Gateway` | AWC gateway on port `3000` |
+| `Active Workspace Client` | AWC client-side deployment |
+| `Microservices Framework` | Full microservice topology |
+| `BMIDE` | Business Modeler IDE |
+| Group bundles (`group_*.xml`) | Richer product-family capabilities |
+
+### Solution Entry Point
+
+For the corporate server path on this host:
+
+- **Use:** `solution_corpserv.xml`
+
+### Set the Install Directory
+
+In the `SelectionPanel`, confirm the installation directory:
+
+- **`C:\TC2412`** — TEM expects a new directory for the initial install root
+
+### Checkpoint
+
+- [ ] At minimum: `Teamcenter Foundation`, `Server Manager`, `Web Tier for .NET`, `FOSS Repository` are selected
+- [ ] No optional features are selected unless they are confirmed as in scope
+- [ ] Install directory is `C:\TC2412` — not a temporary or old path

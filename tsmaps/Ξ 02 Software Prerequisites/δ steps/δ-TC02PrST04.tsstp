@@ -1,0 +1,52 @@
+## IIS, Optional Tools, and Folder Structure
+
+### IIS
+
+IIS must be installed before TEM deploys the web tier.
+
+Required before TEM:
+- IIS installed and running
+- `Default Web Site` started (if reusing it for the Teamcenter pattern)
+- Decision made on app pool: reuse existing or create a dedicated Teamcenter pool
+
+See the [Windows Features](03-windows-features) section for the full feature list and installation command.
+
+### Optional Tools for Active Workspace
+
+Only required when this build includes AWC build and publish tasks:
+
+| Tool | Validated version on this host |
+|------|-------------------------------|
+| Node.js | `v25.9.0` |
+| npm | `11.12.1` |
+
+### Recommended Folder Structure
+
+Use a clean, predictable layout from the start:
+
+| Path | Purpose |
+|------|---------|
+| `C:\TC2412` | Teamcenter root (`TC_ROOT`) |
+| `C:\tcdata` | Teamcenter data (`TC_DATA`) |
+| `C:\java\jdk` | JDK |
+| `C:\java\jre` | JRE (used by TEM and Teamcenter) |
+| `C:\tc_media_files` | All media archives |
+| `C:\tc_media_files\tc2412_wntx64\tc2412_wntx64` | Base media |
+| `C:\tc_media_files\Tc2412.0008_wntx64\wntx64` | Patch media |
+| `C:\TC_AI` | Coordination root — notes, logs, artifacts |
+| `C:\TC_AI\logs` | Install and AWC build logs |
+| `C:\TC_AI\artifacts` | Pre-change backups |
+
+### Important Post-Install Paths to Know
+
+| Path | Purpose |
+|------|---------|
+| `C:\TC2412\install` | TEM install state and `configuration.xml` |
+| `C:\TC2412\net_webtier_TCFISHER\tc` | Web tier deployment |
+| `C:\TC2412\pool_manager\confs\TCFISHER` | Server manager configuration |
+| `C:\TC2412\aws2\stage` | Active Workspace stage area |
+| `C:\TC2412\microservices\gateway\config.json` | AWC gateway configuration |
+
+### Key Guidance from TEM
+
+> Do **not** define `TC_DATA` as a system-wide environment variable. TEM manages `TC_DATA` in Teamcenter scripts and configuration files. Setting it in the OS environment can cause conflicts when more than one configuration exists on a host.

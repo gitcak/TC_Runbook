@@ -1,0 +1,34 @@
+## TEM Panel Reference — Startup and Foundation
+
+This section documents the TEM panel fields at a reference level. Use this alongside the step-by-step runbook, not instead of it.
+
+### Install Startup and Global Settings
+
+| Panel / Area | Fields | Recommended value |
+|-------------|--------|------------------|
+| TEM launch | `-jre "<path>"` | `C:\java\jre` |
+| Application / solution | Corporate server path | `solution_corpserv.xml` |
+| Install location | Install directory | `C:\TC2412` |
+| Configuration ID | Configuration name | `TCFISHER` — keep consistent across related hosts |
+| Language | Install language | `ENGLISH` |
+| Threads | Installer thread count | Keep default unless host is resource-constrained |
+
+### Foundation Install Decision Panels
+
+| Panel | Options | When to use |
+|-------|---------|-------------|
+| `FoundationInstallPanel` | `Create and populate database, create new data directory` | **Fresh environment** |
+| | `Populate database, create new data directory` | Database exists but empty |
+| | `Create new data directory using existing populated database` | DB populated, no `TC_DATA` |
+| | `Use populated database and existing data directory` | Both already exist |
+| `TcDataPanel` | `Data Directory` | `C:\tcdata` |
+| `TcDatabaseSelectionPanel` | Database engine, server, port, login, database name | `Microsoft SQL Server`, `server2019tc`, port `1433` |
+
+### Foundation Behavior and Data Panels
+
+| Panel | Fields | Recommended value |
+|-------|--------|------------------|
+| `FoundationSettingsPanel` | `Generate server cache`, `Generate client cache`, Environment type | Enable caches; select `Production Environment` for live use |
+| `CharEncodingPanel` | `Canonical Name` | `Cp1252` (match the database encoding) |
+| `TransVolPanel` | `Transient Volume Directory (Windows)` | Provide a valid local temp path |
+| `ProductExcellencePanel` | Participate or opt out | Choose intentionally and document the choice |

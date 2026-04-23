@@ -1,0 +1,41 @@
+## Step 8 — Web Tier / IIS Settings
+
+Configure TEM to deploy the Teamcenter web application into IIS.
+
+### TEM Field Values for This Host Pattern
+
+| TEM field | Validated value |
+|-----------|----------------|
+| Use existing web site | `Yes` |
+| Existing web site | `Default Web Site` |
+| Application pool | Dedicated Teamcenter pool — create new |
+| Application pool name | `TcWebTierPool` |
+| Virtual directory name | `tc` |
+| Resulting URL | `http://server2019tc/tc` |
+
+### IIS Configuration After TEM
+
+The validated IIS state on this host after install:
+
+| Setting | Value |
+|---------|-------|
+| Web site | `Default Web Site` |
+| Site binding | `*:80:` |
+| App pool | `TcWebTierPool` |
+| Managed runtime | `v4.0` |
+| Pipeline mode | `Integrated` |
+| Physical path | `C:\TC2412\net_webtier_TCFISHER\tc` |
+
+### Recommendations
+
+- Use a **dedicated** Teamcenter application pool even if IIS offers shared pools — this avoids interference from other applications and simplifies restart isolation
+- Keep the virtual directory name as `tc` unless a collision forces a change
+- Do not use a temporary or test path for the web application — use the final intended URL
+
+### Checkpoint
+
+- [ ] Selected site is `Default Web Site`
+- [ ] App pool name recorded (`TcWebTierPool`)
+- [ ] Virtual directory is `tc`
+- [ ] Resulting Teamcenter URL is `http://server2019tc/tc` — this is the final user-facing endpoint
+- [ ] IIS is not being pointed to a temporary location

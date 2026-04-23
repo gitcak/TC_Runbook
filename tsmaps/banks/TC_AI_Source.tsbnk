@@ -1,0 +1,10 @@
+{
+  "key": "TCAISRCBNK0",
+  "token": "TC_AI Source",
+  "name": "TC_AI Source Docs",
+  "description": "Source documentation and operator notes from the TC_AI workspace",
+  "created": "2026-04-23T00:00:00.000Z",
+  "bankPath": "C:\\TC_AI",
+  "contextPath": "C:\\TC_AI\\.bin\\_context\\maps.tsctx",
+  "active": true
+}

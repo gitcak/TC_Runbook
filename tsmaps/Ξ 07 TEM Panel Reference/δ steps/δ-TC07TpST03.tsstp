@@ -1,0 +1,45 @@
+## TEM Panel Reference — Identity, Security, and Admin Panels
+
+### AdminUserPanel
+
+| Field | Guidance |
+|-------|---------|
+| `User` | Teamcenter creates `infodba` as the admin user |
+| `Password` | Set a compliant password during install — must not be empty, must not contain whitespace |
+
+### OperationUserPanel
+
+Initial installs typically use `infodba`. TEM may show values read-only in some flows.
+
+### OSUserPanel
+
+| Field | Guidance |
+|-------|---------|
+| `User` | Windows service account that will run Teamcenter services |
+| `Password` | The service account password |
+
+Requirements for the OS user:
+- Must have local administrator rights
+- Must have `Log on as a service` right
+- Must be able to access the Teamcenter installation directory and `TC_DATA`
+
+### SecurityPanel
+
+Keep the security directory and password file storage secured under the Teamcenter data structure or a protected location.
+
+### Password Rules Enforced by TEM
+
+Applies to all password fields:
+
+| Rule | Detail |
+|------|--------|
+| No empty passwords | TEM will not proceed with blank password fields |
+| No whitespace | Passwords containing spaces will be rejected |
+| Special characters | Some characters are rejected by TEM's system-user entry field — test with simple alphanumeric first if having issues |
+
+### ProductExcellencePanel
+
+Participation in Siemens product excellence program is enabled by default. Make an intentional choice and document it:
+
+- Enabled: Telemetry data sent to Siemens
+- Disabled: No telemetry sent

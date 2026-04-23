@@ -1,0 +1,40 @@
+## TEM Panel Reference — SQL Server Panels
+
+### FoundationDatabasePanel
+
+The main Foundation database panel. Fill in all fields.
+
+| Field | Value for this host |
+|-------|---------------------|
+| `Host` | `server2019tc` |
+| `Port` | `1433` |
+| `Instance` | *(leave blank for default instance)* |
+| `User` | Teamcenter DB login name |
+| `Password` | Teamcenter DB login password |
+| `Database Name` | Chosen Teamcenter database name |
+| `Data Directory` | `C:\tcdata` |
+
+### MSSQLSystemPanel
+
+Shown when TEM is creating the database.
+
+| Field | Notes |
+|-------|-------|
+| `Database System User` | `sa` or your DBA account |
+| `Database System Password` | Available at runtime — do not embed in notes |
+| `Database Directory on Database Server` | SQL data folder — must already exist |
+| `Database Collation` | Default shown by TEM help: `Latin1_General_BIN` |
+
+### MssqlPortInstancePanel
+
+| Choice | Value |
+|--------|-------|
+| Connection method | `Port` (not named instance) |
+| Port | `1433` |
+
+### Configuration Categories (Reference)
+
+These appear in the saved `configuration.xml` after install:
+
+- `SmMssqlEngine` — Server Manager database settings (host, DB name, port, create flags)
+- `TcMssqlEngine` — Teamcenter database settings (host, DB name, port, user, populate flags, UTF-8 flag)

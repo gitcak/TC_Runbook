@@ -1,0 +1,66 @@
+¬import ..\..\Ω variables\tc_shared.tsvar
+
+## Troubleshooting — TEM Stale Recovery State
+
+### Symptom
+
+TEM launches and behaves like it needs to restore or resume a failed install, even though the deploy already completed successfully.
+
+### Root Cause (Validated on This Host)
+
+TEM retains stale failure summaries from earlier broken legs of a recovery run. Two things can cause this:
+
+1. **Stale TEM bookkeeping files** in `C:\TC2412\install` (`install_display_results.log`, `tem.lck`)
+2. **Persisted recovery marker** inside `configuration.xml` — the `director` component has `<status value="-1" />` instead of `0`
+
+`Config.isInRecovery()` in TEM returns `true` when a saved `director` component exists with a nonzero status, even if the original live recovery file is gone.
+
+### Diagnostic
+
+Test whether TEM thinks the config is in recovery mode:
+
+```powershell
+cmd /c "C:\TC2412\install\tem.bat -restart -config=TCFISHER -test"
+```
+
+If the output says `Recovering configuration 'TCFISHER'`, the stale state is confirmed.
+
+### Stage 1 — Remove Stale Display Artifacts
+
+```powershell
+$stamp = Get-Date -Format 'yyyyMMdd_HHmm'
+$dest = "C:\TC_AI\artifacts\tem_state_backup_$stamp"
+New-Item -ItemType Directory -Path $dest -Force | Out-Null
+
+$files = @(
+    'C:\TC2412\install\install_display_results.log',
+    'C:\TC2412\install\tem.lck'
+)
+foreach ($f in $files) {
+    if (Test-Path $f) {
+        Move-Item -LiteralPath $f -Destination $dest -Force
+    }
+}
+```
+
+### Stage 2 — Clear Persisted Recovery Marker in configuration.xml
+
+1. Back up `configuration.xml`:
+   ```powershell
+   Copy-Item C:\TC2412\install\configuration.xml `
+     "C:\TC_AI\artifacts\tem_state_backup_${stamp}\configuration_pre_fix.xml"
+   ```
+
+2. Edit `C:\TC2412\install\configuration.xml`:
+   - Change `<comments>...</comments>` to `<comments />`
+   - Find the saved `director` component and change `<status value="-1" />` to `<status value="0" />`
+
+3. Validate the fix:
+   ```powershell
+   cmd /c "C:\TC2412\install\tem.bat -restart -config=TCFISHER -test"
+   ```
+   Expected: `Configuration TCFISHER is not in recovery mode`
+
+### Reference Note
+
+`C:\TC_AI\notes\2026-04-16_tem_stale_recovery_state_cleanup.md`
