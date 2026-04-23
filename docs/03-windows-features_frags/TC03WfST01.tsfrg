@@ -1,0 +1,85 @@
+---
+layout: null
+permalink: /03-windows-features_frags/TC03WfST01.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC03WfST01","topLevelMapKey":"TC03WfMAP0","mapKeyChain":"TC03WfMAP0","guideID":"TC03WfMAP0","chartKey":"TC03WfMAP0","isLeaf":true,"options":[]} -->
+
+## Windows Server Features Required
+
+The following Windows features are installed on the validated host and represent the safe working IIS/.NET feature set for this Teamcenter pattern.
+
+### Feature List
+
+```
+NET-Framework-Core
+NET-Framework-45-Features
+NET-Framework-45-Core
+NET-Framework-45-ASPNET
+NET-WCF-Services45
+NET-WCF-TCP-PortSharing45
+Web-Server
+Web-WebServer
+Web-Common-Http
+Web-Default-Doc
+Web-Dir-Browsing
+Web-Http-Errors
+Web-Static-Content
+Web-Http-Logging
+Web-Request-Monitor
+Web-Http-Tracing
+Web-Performance
+Web-Stat-Compression
+Web-Dyn-Compression
+Web-Security
+Web-Filtering
+Web-Basic-Auth
+Web-Windows-Auth
+Web-Digest-Auth
+Web-Client-Auth
+Web-Cert-Auth
+Web-Url-Auth
+Web-IP-Security
+Web-App-Dev
+Web-ASP
+Web-Asp-Net45
+Web-Net-Ext45
+Web-ISAPI-Ext
+Web-ISAPI-Filter
+Web-Health
+Web-Http-Redirect
+Web-Includes
+Web-Mgmt-Tools
+Web-Mgmt-Console
+```
+
+### Installation Command
+
+Run this from an elevated PowerShell session to install the entire validated superset:
+
+```powershell
+Install-WindowsFeature `
+  NET-Framework-Core,NET-Framework-45-Features,NET-Framework-45-Core,NET-Framework-45-ASPNET,`
+  NET-WCF-Services45,NET-WCF-TCP-PortSharing45,`
+  Web-Server,Web-WebServer,Web-Common-Http,Web-Default-Doc,Web-Dir-Browsing,Web-Http-Errors,`
+  Web-Static-Content,Web-Http-Logging,Web-Request-Monitor,Web-Http-Tracing,`
+  Web-Performance,Web-Stat-Compression,Web-Dyn-Compression,`
+  Web-Security,Web-Filtering,Web-Basic-Auth,Web-Windows-Auth,Web-Digest-Auth,`
+  Web-Client-Auth,Web-Cert-Auth,Web-Url-Auth,Web-IP-Security,`
+  Web-App-Dev,Web-ASP,Web-Asp-Net45,Web-Net-Ext45,Web-ISAPI-Ext,Web-ISAPI-Filter,`
+  Web-Health,Web-Http-Redirect,Web-Includes,`
+  Web-Mgmt-Tools,Web-Mgmt-Console
+```
+
+### After Installation
+
+Verify IIS is running before opening TEM:
+
+```powershell
+Get-Service W3SVC, WAS
+Import-Module WebAdministration
+Get-Website
+```
+
+Expected: `Default Web Site` state `Started`.

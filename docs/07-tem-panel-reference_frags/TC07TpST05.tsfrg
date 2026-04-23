@@ -1,0 +1,58 @@
+---
+layout: null
+permalink: /07-tem-panel-reference_frags/TC07TpST05.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC07TpST05","topLevelMapKey":"TC07TpMAP0","mapKeyChain":"TC07TpMAP0","guideID":"TC07TpMAP0","parentFragmentID":"TC07TpST04","chartKey":"TC07TpMAP0","isLeaf":true,"options":[]} -->
+
+## TEM Panel Reference — IIS, FMS, and AWC Panels
+
+### IIS and Web Tier Panels
+
+| Panel | Fields | Validated values |
+|-------|--------|-----------------|
+| `WebTierIISPanel` | Use existing site, use existing app pool, virtual directory name | Existing site, dedicated pool, `tc` |
+| `DefaultSiteWebServerPanel` | Host, Port, Application Name | `server2019tc`, `80`, `tc` |
+| `MidtierServersPanel` | 4-tier server URI list, gzip | `http://server2019tc/tc`, gzip enabled |
+
+Configuration categories in `configuration.xml`:
+- `existWebSiteName`, `webSitePort`, `webAppName`, `webAppPoolName`, `webTierUrl`, `tcAppPath`
+
+---
+
+### FMS and Cache Panels
+
+| Panel | Fields | Guidance |
+|-------|--------|---------|
+| `FscServerPanel` | Server ID, Address, FSC Group, Server Type | Define FSC roles if FMS topology is in scope |
+| `FccDefaultsPanel` | Windows Cache Directory, Max cache sizes | Keep under a user-resolvable local path, e.g., `$HOME\FCCCache` |
+| `FscConnectionsPanel` | FSC service URLs and ports | Current gateway config references FSC bootstrap URL `http://server2019tc:4544` |
+
+Configuration categories: `FSCServiceFCCDefaults`, `FSCServiceConnections`, `FSCService`, `FSCMasterSettings`, `filerepo`
+
+---
+
+### Active Workspace and Microservice Panels
+
+| Panel | Fields | Guidance |
+|-------|--------|---------|
+| `AwsCorporateServerPanel` | Search Engine URL | Use Solr URL: `http://server2019tc:8983/solr` |
+| `GatewayServicePanel` | Gateway Service Port, Active Workspace URL, Node.js path | Port `3000`; if using system Node.js, document the exact path |
+| `MicroservicesWinPanel` | Master/worker node, keystore, Service Dispatcher port, Service Registry port | Master node first; Service Dispatcher default `9090`, Service Registry default `8787` |
+
+Current gateway on this host:
+- Gateway port: `3000`
+- Gateway `/tc` target: `http://server2019tc/tc`
+
+Configuration categories: `microservices`, `registryPort`, `dispatcherPort`, `gatewayPort`, `gatewayPort`
+
+---
+
+### Optional Supporting Panels
+
+These may appear depending on selected features. Do not guess if you see them — stop and verify the feature is intentional:
+
+`FTSPanel`, `FtsIndexerClientSettingsPanel`, `ReadExpressionPanel`, `ArtifactServicePanel`,
+`OfficeOnlineMicroservicePanel`, `OdataServicePanel`, `DataProxyPanel`, `DatabaseDaemonsPanel`,
+`TcCS*` panels, `Volume*` panels, `TransService*` panels

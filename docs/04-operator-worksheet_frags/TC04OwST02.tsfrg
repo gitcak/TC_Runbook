@@ -1,0 +1,66 @@
+---
+layout: null
+permalink: /04-operator-worksheet_frags/TC04OwST02.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC04OwST02","topLevelMapKey":"TC04OwMAP0","mapKeyChain":"TC04OwMAP0","guideID":"TC04OwMAP0","parentFragmentID":"TC04OwST01","chartKey":"TC04OwMAP0","isLeaf":true,"options":[]} -->
+
+## Operator Input Worksheet
+
+Collect and confirm all values below **before** starting TEM. Leave no field blank.
+
+### Input Worksheet
+
+| Input | What to record | Validated host example |
+|-------|----------------|------------------------|
+| Host name | Windows host name used in URLs and service bindings | `server2019tc` |
+| Teamcenter root | Final install path | `C:\TC2412` |
+| Teamcenter data | Final `TC_DATA` path | `C:\tcdata` |
+| Base media root | Expanded base kit path | `C:\tc_media_files\tc2412_wntx64\tc2412_wntx64` |
+| Patch media root | Expanded patch kit path | `C:\tc_media_files\Tc2412.0008_wntx64\wntx64` |
+| Java JRE path | JRE used to launch TEM | `C:\java\jre` |
+| Java JDK path | JDK for supporting tools | `C:\java\jdk` |
+| SQL host | Hostname TEM should use | `server2019tc` |
+| SQL connection type | Named instance or port | `Port` |
+| SQL port | SQL listener port | `1433` |
+| Teamcenter database name | Final Teamcenter DB name | `<operator-defined>` |
+| IIS site | Existing or new site | `Default Web Site` |
+| IIS app pool | Existing or dedicated pool | `TcWebTierPool` |
+| Web app virtual directory | Teamcenter IIS application name | `tc` |
+| 4-tier URL | Final client/web-tier URL | `http://server2019tc/tc` |
+| Server Manager cluster ID | Cluster identifier | `TcCluster` |
+| Server Manager pool ID | Pool identifier | `PoolA` |
+| Server Manager ports | Assignment, MUX, JMX | `8086`, `8087`, `8088` |
+| AWC gateway port | If in scope | `3000` |
+
+### Operator-Supplied Values (Collect Before Clicking Start)
+
+These must be finalized and available at TEM runtime. Do not store credentials in notes.
+
+- [ ] Teamcenter database name
+- [ ] Teamcenter database login name
+- [ ] Teamcenter database login password
+- [ ] SQL system user password (if TEM is creating the database)
+- [ ] `infodba` password
+- [ ] Windows service account name and password
+- [ ] Optional module list beyond the core platform
+- [ ] Optional Active Workspace, FMS, FSC, Solr, gateway, or microservice URLs
+
+### Port Reservation Checklist
+
+Confirm these ports are available before TEM runs:
+
+| Port | Service |
+|------|---------|
+| `80` | IIS web tier |
+| `1433` | SQL Server |
+| `4544` | FSC (if FMS is in scope) |
+| `8086` | Server Manager assignment service |
+| `8087` | Server Manager MUX |
+| `8088` | Server Manager JMX/RMI |
+| `3000` | AWC gateway (if in scope) |
+
+```powershell
+Get-NetTCPConnection -State Listen | Where-Object LocalPort -in 80,1433,4544,8086,8087,8088,3000
+```

@@ -1,0 +1,67 @@
+---
+layout: null
+permalink: /07-tem-panel-reference_frags/TC07TpST04.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC07TpST04","topLevelMapKey":"TC07TpMAP0","mapKeyChain":"TC07TpMAP0","guideID":"TC07TpMAP0","parentFragmentID":"TC07TpST03","chartKey":"TC07TpMAP0","isLeaf":false,"options":[{"id":"TC07TpST05","option":"Next","order":1}]} -->
+
+## TEM Panel Reference — 4-Tier Server Manager Panels
+
+### ServerMgrJ2eePanel
+
+| Field | Validated value |
+|-------|----------------|
+| Pool ID | `PoolA` |
+| JMX RMI Port | `8088` |
+| Assignment Service Port | `8086` |
+| Server Host | *(leave blank unless cross-host assignment is needed)* |
+| Max Servers in Sub-Pool | `30` |
+| Min Warm Servers | `1` |
+| Server Target | `0700 3, 1700 2` |
+| Logins per Minute | `0` |
+| Startup Mode | `Service/Daemon` |
+
+### ServerManagerSettingsPanel
+
+Timeout values currently in use on this host:
+
+| Timeout | Value (seconds) |
+|---------|----------------|
+| Hard edit | `28800` |
+| Hard read | `28800` |
+| Hard stateless | `28800` |
+| Soft edit | `28800` |
+| Soft read | `28800` |
+| Soft stateless | `1200` |
+
+### MultiplexingProxyPanel
+
+| Field | Value |
+|-------|-------|
+| Port (MUX) | `8087` |
+| TECS Admin Port | `8084` |
+
+### ServerManagerDBPanel
+
+Server Manager uses the same MSSQL instance as Teamcenter Foundation:
+
+- DB host: `server2019tc[1433]`
+
+### ServerManagerJMXConfigPanel
+
+Keep aligned with the JMX RMI port (`8088`).
+
+### ServerManagerLDAPConfigPanel
+
+Leave at safe defaults unless LDAP integration is explicitly in scope.
+
+### Configuration Categories (Reference)
+
+Visible in `configuration.xml` after install:
+
+- `serverMgrJ2ee`
+- `multiplexingproxy`
+- `ServerManagerJMX`
+- `ServerManagerHttps`
+- `ServerManagerConsoleLDAP`

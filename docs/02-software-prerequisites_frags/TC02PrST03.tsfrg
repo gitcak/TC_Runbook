@@ -1,0 +1,59 @@
+---
+layout: null
+permalink: /02-software-prerequisites_frags/TC02PrST03.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC02PrST03","topLevelMapKey":"TC02PrMAP0","mapKeyChain":"TC02PrMAP0","guideID":"TC02PrMAP0","parentFragmentID":"TC02PrST02","chartKey":"TC02PrMAP0","isLeaf":false,"options":[{"id":"TC02PrST04","option":"Next","order":1}]} -->
+
+## Microsoft SQL Server
+
+### Requirements
+
+SQL Server must be installed and reachable before starting TEM.
+
+Current validated host state:
+
+| Item | Value |
+|------|-------|
+| Service name | `MSSQLSERVER` |
+| Port | `1433` |
+| Edition | SQL Server 2019 Developer Edition |
+| Instance type | Default instance |
+
+> **Important:** On this host, the original SQL blocker was an **expired SQL Server Evaluation edition**, not a missing SSL configuration. If SQL connectivity fails, verify the edition and license status before assuming network or SSL issues.
+
+### Validation Commands
+
+```powershell
+Get-Service MSSQLSERVER
+Get-NetTCPConnection -State Listen | Where-Object LocalPort -eq 1433
+```
+
+Expected:
+- Service status: `Running`
+- TCP `1433` listening
+
+### SQL Server Management Studio (SSMS)
+
+Optional but strongly recommended for managing the Teamcenter database:
+
+- `C:\tc_media_files\SSMS-Setup-ENU.exe`
+
+### Pre-TEM SQL Decisions
+
+Decide these before TEM asks:
+
+- [ ] Final Teamcenter database name
+- [ ] Teamcenter database login name and password
+- [ ] Whether TEM will **create** the database or connect to an existing one
+- [ ] If TEM creates the database: have the `sa` password available
+- [ ] SQL data folder path (where TEM will place the database files)
+
+### Password Rules
+
+TEM enforces strict rules on SQL credentials:
+
+- Passwords must not be empty
+- Passwords must not contain whitespace
+- Avoid TEM-rejected special characters in the `sa` and database user password fields

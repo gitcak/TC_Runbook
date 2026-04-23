@@ -1,0 +1,73 @@
+---
+layout: null
+permalink: /11-troubleshooting_frags/TC11TrST02.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC11TrST02","topLevelMapKey":"TC11TrMAP0","mapKeyChain":"TC11TrMAP0","guideID":"TC11TrMAP0","parentFragmentID":"TC11TrST01","chartKey":"TC11TrMAP0","isLeaf":false,"options":[{"id":"TC11TrST03","option":"Next","order":1}]} -->
+
+## Troubleshooting — Server Manager Issues
+
+### Symptom: Login Fails with "None of the Server Managers are on-line"
+
+**Cause:** The Teamcenter Server Manager service is not running or its listening ports are not present.
+
+**Diagnosis:**
+
+```powershell
+Get-Service 'Teamcenter Server Manager TCFISHER_PoolA'
+Get-NetTCPConnection -State Listen | Where-Object LocalPort -in 8086,8087,8088
+```
+
+**Fix — Reinstall and Start the Service:**
+
+```powershell
+cmd /c "call C:\TC2412\pool_manager\confs\TCFISHER\installmgr.bat"
+Start-Service -Name "Teamcenter Server Manager TCFISHER_PoolA"
+```
+
+Verify:
+
+```powershell
+Get-Service 'Teamcenter Server Manager TCFISHER_PoolA'
+Get-NetTCPConnection -State Listen | Where-Object LocalPort -in 8086,8087,8088
+```
+
+Reference: `C:\TC_AI\notes\2026-04-15_server-manager_login_fix.md`
+
+---
+
+### Symptom: RAC Reports "The client cache is empty"
+
+**Diagnosis steps — do not regenerate blindly:**
+
+1. Verify cache tickets are present
+2. Restart `Teamcenter Server Manager TCFISHER_PoolA`
+3. Move the RAC workspace aside to a backup location
+4. Relaunch RAC
+
+```powershell
+Restart-Service 'Teamcenter Server Manager TCFISHER_PoolA'
+```
+
+Reference: `C:\TC_AI\notes\2026-04-15_rac_client_cache_known_fix.md`
+
+---
+
+### Symptom: Stale `tem.lck` File
+
+If TEM CLI operations leave a `tem.lck` file and TEM is not actively running:
+
+```powershell
+$javaw = Get-Process javaw -ErrorAction SilentlyContinue
+if (-not $javaw) {
+    $stamp = Get-Date -Format 'yyyyMMdd_HHmm'
+    Move-Item C:\TC2412\install\tem.lck `
+      "C:\TC_AI\artifacts\tem_lock_${stamp}.lck" -Force
+    Write-Host "Lock file moved — no live TEM process was running"
+} else {
+    Write-Host "TEM javaw process is still running — do not remove the lock"
+}
+```
+
+> **Caution:** Never delete `tem.lck` while TEM is actively running. Always confirm no `javaw` process is alive first.

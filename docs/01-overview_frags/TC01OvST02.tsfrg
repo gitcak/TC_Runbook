@@ -1,0 +1,74 @@
+---
+layout: null
+permalink: /01-overview_frags/TC01OvST02.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC01OvST02","topLevelMapKey":"TC01OvMAP0","mapKeyChain":"TC01OvMAP0","guideID":"TC01OvMAP0","parentFragmentID":"TC01OvST01","chartKey":"TC01OvMAP0","isLeaf":false,"options":[{"id":"TC01OvST03","option":"Next","order":1}]} -->
+
+## Intended Topology
+
+This runbook assumes a basic **4-tier Teamcenter deployment on one Windows host**:
+
+| Component | Configuration |
+|-----------|---------------|
+| Database | SQL Server on the same machine |
+| Web tier | IIS under `Default Web Site` |
+| Application server | Teamcenter Server Manager as a Windows service |
+| Web application | `/tc` |
+| Optional | Active Workspace gateway on port `3000` |
+
+If the target is not this pattern, stop and verify whether the install should be documented as 2-tier only, distributed 4-tier, or a microservice-heavy topology.
+
+---
+
+## Scope
+
+**This guide covers:**
+
+- Prerequisite software and setup programs
+- Windows Server feature preparation
+- Java requirements
+- Recommended folder structure
+- TEM wizard choices and field meanings
+- Host and port settings for a basic 4-tier deployment
+- Patching the base install to `2412.008`
+- Post-install validation
+
+**This guide does not include:**
+
+- License procurement
+- Detailed Oracle deployment steps
+- Advanced distributed multi-host deployment
+- SSO setup
+- Production HA sizing
+
+---
+
+## Validated Host Baseline
+
+The current machine state confirms this working baseline:
+
+| Area | Validated value |
+|------|----------------|
+| Teamcenter root | `C:\TC2412` |
+| Teamcenter data | `C:\tcdata` |
+| Base media | `C:\tc_media_files\tc2412_wntx64\tc2412_wntx64` |
+| Patch media | `C:\tc_media_files\Tc2412.0008_wntx64\wntx64` |
+| Installed version | `2412.0.0.8` / `2412.8` |
+| Database | SQL Server 2019 Developer Edition |
+| SQL service | `MSSQLSERVER` on port `1433` |
+| IIS site | `Default Web Site` on `*:80:` |
+| Web app | `/tc` |
+| App pool | `TcWebTierPool` — `v4.0` Integrated |
+| Web tier path | `C:\TC2412\net_webtier_TCFISHER\tc` |
+| Server Manager service | `Teamcenter Server Manager TCFISHER_PoolA` |
+| Server Manager ports | `8086`, `8087`, `8088` |
+| AWC gateway | `http://server2019tc:3000` |
+| Gateway `/tc` target | `http://server2019tc/tc` |
+
+**Validated HTTP checks (2026-04-22):**
+
+- `http://server2019tc/tc/services/ServiceDispatcher?wsdl` → `200`
+- `http://server2019tc:3000/` → `200`
+- `http://server2019tc:3000/tc.html` → `200`

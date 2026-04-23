@@ -1,0 +1,37 @@
+---
+layout: null
+permalink: /06-tem-installation_frags/TC06TiST04.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC06TiST04","topLevelMapKey":"TC06TiMAP0","mapKeyChain":"TC06TiMAP0","guideID":"TC06TiMAP0","parentFragmentID":"TC06TiST03","chartKey":"TC06TiMAP0","isLeaf":false,"options":[{"id":"TC06TiST05","option":"Next","order":1}]} -->
+
+## Step 4 — Launch TEM from the Base Media
+
+Launch TEM with an explicit Java path to remove any ambiguity about which runtime is used:
+
+```powershell
+cmd /c "\"C:\tc_media_files\tc2412_wntx64\tc2412_wntx64\tem.bat\" -jre \"C:\java\jre\""
+```
+
+### Expected TEM Wizard Flow
+
+After TEM opens, proceed through these panels in order:
+
+| Panel | Action |
+|-------|--------|
+| `WelcomePanel` | Choose **`Install`** — do not use Quick Preconfigured Install, Upgrade, or Updates Manager |
+| `LicenseAgreementPanel` | Review and accept the Siemens license agreement |
+| `BrowseJrePanel` | Enter `C:\java\jre` — the JRE Teamcenter will use |
+| `ApplicationSelectionPanel` | Choose **`Teamcenter`** — not Teamcenter Rapid Start |
+| `ConfigPromptNewPanel` | Enter the configuration identifier (e.g., `TCFISHER`) — record this ID |
+| `SolutionPanel` | Choose **`solution_corpserv.xml`** for the corporate server path |
+| `SelectionPanel` | Select features and set the install directory to `C:\TC2412` |
+
+### Checkpoint
+
+- [ ] TEM opens without a Java path error
+- [ ] `WelcomePanel` shows `Install` as the selected option
+- [ ] Configuration ID is recorded before proceeding
+
+> **Warning:** Do not use `Quick Preconfigured Install`. It bypasses the configuration panels this runbook documents and may produce an installation that does not match the validated host pattern.

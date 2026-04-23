@@ -1,0 +1,122 @@
+---
+title: null
+isGuide: true
+mapFolderPath: tsmaps/%CE%9E%20Post-Install%20Validation
+fragsFolderPath: 09-post-install-validation_frags
+
+---
+
+
+<!-- tsGuideRenderComment {"guide":{"id":"TC09PvST01","path":"","fragmentFolderPath":"09-post-install-validation_frags"},"fragment":{"id":"TC09PvST01","topLevelMapKey":"TC09PvMAP0","mapKeyChain":"TC09PvMAP0","guideID":"TC09PvMAP0","chartKey":"TC09PvMAP0","isLeaf":true,"options":[]}} -->
+
+## Post-Install Validation Checklist
+
+Run all checks immediately after installation or patching. Do not declare the installation complete until every section below is confirmed.
+
+---
+
+### 1. Service Checks
+
+```powershell
+Get-Service MSSQLSERVER,'Teamcenter Server Manager TCFISHER_PoolA',W3SVC
+```
+
+| Service | Expected status |
+|---------|----------------|
+| `MSSQLSERVER` | `Running` |
+| `Teamcenter Server Manager TCFISHER_PoolA` | `Running` |
+| `W3SVC` | `Running` |
+
+---
+
+### 2. Port Checks
+
+```powershell
+Get-NetTCPConnection -State Listen |
+  Where-Object LocalPort -in 80,1433,8086,8087,8088,3000,4544 |
+  Sort-Object LocalPort
+```
+
+| Port | Service |
+|------|---------|
+| `80` | IIS web tier |
+| `1433` | SQL Server |
+| `8086` | Server Manager assignment service |
+| `8087` | Server Manager MUX |
+| `8088` | Server Manager JMX/RMI |
+| `3000` | AWC gateway (if in scope) |
+| `4544` | FSC (if FMS is in scope) |
+
+---
+
+### 3. IIS Checks
+
+```powershell
+Import-Module WebAdministration
+Get-Website
+Get-WebApplication
+```
+
+Expected:
+- `Default Web Site` — State: `Started`
+- `/tc` application — present
+
+---
+
+### 4. Teamcenter URL Checks
+
+```powershell
+Invoke-WebRequest http://server2019tc/tc/services/ServiceDispatcher?wsdl -UseBasicParsing
+Invoke-WebRequest http://server2019tc:3000/ -UseBasicParsing
+Invoke-WebRequest http://server2019tc:3000/tc.html -UseBasicParsing
+```
+
+| URL | Expected |
+|-----|----------|
+| `http://server2019tc/tc/services/ServiceDispatcher?wsdl` | `StatusCode 200` |
+| `http://server2019tc:3000/` | `StatusCode 200` (AWC gateway, if in scope) |
+| `http://server2019tc:3000/tc.html` | `StatusCode 200` (AWC, if in scope) |
+
+> **Expected non-error behavior:** `http://server2019tc/tc` redirects to `/tc/` which returns IIS `403.14`. This is normal — the bare `/tc/` directory is not the AWC entry page on this host. Use `:3000/` and `:3000/tc.html` as the real AWC entrypoints.
+
+---
+
+### 5. Filesystem Checks
+
+```powershell
+@(
+  "C:\TC2412",
+  "C:\tcdata",
+  "C:\TC2412\install\configuration.xml",
+  "C:\TC2412\pool_manager\confs\TCFISHER",
+  "C:\TC2412\net_webtier_TCFISHER\tc"
+) | ForEach-Object { [pscustomobject]@{ Path = $_; Exists = (Test-Path $_) } }
+```
+
+All paths must return `True`.
+
+---
+
+### 6. Configuration Version Check
+
+```powershell
+Select-String "version" C:\TC2412\install\configuration.xml | Select-Object -First 5
+```
+
+After base install: version `2412`
+After patch: version `2412.8`
+
+---
+
+### 7. TEM Recovery State Check
+
+```powershell
+cmd /c "C:\TC2412\install\tem.bat -restart -config=TCFISHER -test"
+```
+
+Expected:
+```
+Configuration TCFISHER is not in recovery mode
+```
+
+If TEM still reports recovery mode, follow `notes/2026-04-16_tem_stale_recovery_state_cleanup.md` before proceeding.

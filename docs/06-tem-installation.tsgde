@@ -1,0 +1,50 @@
+---
+title: null
+isGuide: true
+mapFolderPath: tsmaps/%CE%9E%20TEM%20Installation
+fragsFolderPath: 06-tem-installation_frags
+
+---
+
+
+<!-- tsGuideRenderComment {"guide":{"id":"TC06TiST01","path":"","fragmentFolderPath":"06-tem-installation_frags"},"fragment":{"id":"TC06TiST01","topLevelMapKey":"TC06TiMAP0","mapKeyChain":"TC06TiMAP0","guideID":"TC06TiMAP0","chartKey":"TC06TiMAP0","isLeaf":false,"options":[{"id":"TC06TiST02","option":"Next","order":1}]}} -->
+
+## Step 1 — Prepare the Machine
+
+Create or confirm the base directories before launching TEM.
+
+```powershell
+New-Item -ItemType Directory -Path C:\TC2412 -Force | Out-Null
+New-Item -ItemType Directory -Path C:\tcdata -Force | Out-Null
+New-Item -ItemType Directory -Path C:\java -Force | Out-Null
+New-Item -ItemType Directory -Path C:\TC_AI\logs -Force | Out-Null
+```
+
+If following the validated local pattern, keep:
+
+- `TC_ROOT` = `C:\TC2412`
+- `TC_DATA` = `C:\tcdata`
+
+### Checkpoint
+
+- [ ] Target folders exist
+- [ ] Paths match the operator worksheet
+- [ ] No old temporary install path is being reused by mistake
+
+---
+
+## TEM Installation Sequence Overview
+
+The safest order for a clean Windows installation is:
+
+1. **Step 1** — Prepare the machine *(current step)*
+2. **Step 2** — Validate SQL Server before TEM
+3. **Step 3** — Validate Java before TEM
+4. **Step 4** — Launch TEM from the base media
+5. **Step 5** — Select the installation pattern
+6. **Step 6** — Foundation panel choice
+7. **Step 7** — Foundation database settings
+8. **Step 8** — Web tier / IIS settings
+9. **Step 9** — 4-tier web server settings
+10. **Step 10** — Server Manager settings
+11. **Step 11** — Finish TEM and capture the result

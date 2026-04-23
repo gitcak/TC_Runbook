@@ -1,0 +1,94 @@
+---
+title: null
+isGuide: true
+mapFolderPath: tsmaps/%CE%9E%20Patching
+fragsFolderPath: 08-patching_frags
+
+---
+
+
+<!-- tsGuideRenderComment {"guide":{"id":"TC08PaST01","path":"","fragmentFolderPath":"08-patching_frags"},"fragment":{"id":"TC08PaST01","topLevelMapKey":"TC08PaMAP0","mapKeyChain":"TC08PaMAP0","guideID":"TC08PaMAP0","chartKey":"TC08PaMAP0","isLeaf":true,"options":[]}} -->
+
+## Applying Patch 2412.008
+
+After the base install is complete, apply the `2412.008` patch.
+
+**Patch media location:** `C:\tc_media_files\Tc2412.0008_wntx64\wntx64`
+
+Use TEM Update Manager or maintenance mode against the existing configuration.
+
+---
+
+### Pre-Patch Steps
+
+1. Back up the current configuration:
+   ```powershell
+   $stamp = Get-Date -Format 'yyyy-MM-dd_HHmmss'
+   Copy-Item C:\TC2412\install\configuration.xml `
+     "C:\TC_AI\artifacts\pre_patch_${stamp}_configuration.xml"
+   ```
+
+2. Confirm all base services are stable:
+   ```powershell
+   Get-Service MSSQLSERVER,'Teamcenter Server Manager TCFISHER_PoolA',W3SVC
+   ```
+   Expected: all `Running`
+
+3. Confirm the WSDL endpoint is reachable:
+   ```powershell
+   Invoke-WebRequest http://server2019tc/tc/services/ServiceDispatcher?wsdl -UseBasicParsing
+   ```
+   Expected: `StatusCode 200`
+
+---
+
+### Patch Procedure
+
+1. Launch TEM with the same Java path used for the base install:
+   ```powershell
+   cmd /c "\"C:\tc_media_files\Tc2412.0008_wntx64\wntx64\tem.bat\" -jre \"C:\java\jre\""
+   ```
+   *(or launch the installed TEM from `C:\TC2412\install\tem.bat` and point it at the patch media)*
+
+2. From `WelcomePanel`, select **`Updates Manager`**
+
+3. Select the existing configuration to update (e.g., `TCFISHER`)
+
+4. Review the patch backup location and patch selections
+
+5. Run the patch
+
+6. Review the patch log — do not trust the TEM UI alone
+
+---
+
+### Patch Checkpoint
+
+After the patch completes:
+
+- [ ] `configuration.xml` shows patch version `2412.8`:
+  ```powershell
+  Select-String "2412.8" C:\TC2412\install\configuration.xml
+  ```
+
+- [ ] Patch source directory matches the expected media root:
+  `C:\tc_media_files\Tc2412.0008_wntx64\wntx64`
+
+- [ ] Base services still start cleanly after patching:
+  ```powershell
+  Get-Service MSSQLSERVER,'Teamcenter Server Manager TCFISHER_PoolA',W3SVC
+  ```
+
+- [ ] Patch log is saved under `C:\TC_AI\logs`
+
+---
+
+### Evidence from Live Installation
+
+The live installation registers the patch as:
+
+| Field | Value |
+|-------|-------|
+| Parent version | `2412` |
+| Patch version | `2412.8` |
+| Patch media | `C:\tc_media_files\Tc2412.0008_wntx64\wntx64` |

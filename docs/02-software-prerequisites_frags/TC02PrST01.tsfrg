@@ -1,0 +1,48 @@
+---
+layout: null
+permalink: /02-software-prerequisites_frags/TC02PrST01.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC02PrST01","topLevelMapKey":"TC02PrMAP0","mapKeyChain":"TC02PrMAP0","guideID":"TC02PrMAP0","chartKey":"TC02PrMAP0","isLeaf":false,"options":[{"id":"TC02PrST02","option":"Next","order":1}]} -->
+
+## Teamcenter Media
+
+### Base Media
+
+Required location: `C:\tc_media_files\tc2412_wntx64\tc2412_wntx64`
+
+Key contents to verify after extracting:
+
+| Path | Purpose |
+|------|---------|
+| `tem.bat` | TEM launcher |
+| `install\` | TEM install logic and help |
+| `tc\` | Teamcenter binaries |
+| `Web_tier\` | IIS web tier deployment |
+| `portal\` | Rich client portal |
+| `bmide\` | BMIDE |
+
+### Patch Media
+
+Required location: `C:\tc_media_files\Tc2412.0008_wntx64\wntx64`
+
+The patch is registered in `C:\TC2412\install\configuration.xml` as:
+
+- Parent version: `2412`
+- Patch version: `2412.8`
+
+### TEM Solution Entry Points
+
+The base media exposes these solution files under `install\solution_*.xml`:
+
+| File | Use |
+|------|-----|
+| `solution_corpserv.xml` | **Corporate server — use this for the primary install** |
+| `solution_awserver.xml` | Active Workspace server-side |
+| `solution_awclient.xml` | Active Workspace client-side |
+| `solution_bmide.xml` | BMIDE install path |
+| `solution_richclient4t.xml` | 4-tier rich client |
+| `solution_multisite.xml` | Multisite deployment |
+
+For this host pattern, always start with `solution_corpserv.xml`.

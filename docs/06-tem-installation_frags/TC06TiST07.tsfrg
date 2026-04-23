@@ -1,0 +1,56 @@
+---
+layout: null
+permalink: /06-tem-installation_frags/TC06TiST07.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC06TiST07","topLevelMapKey":"TC06TiMAP0","mapKeyChain":"TC06TiMAP0","guideID":"TC06TiMAP0","parentFragmentID":"TC06TiST06","chartKey":"TC06TiMAP0","isLeaf":false,"options":[{"id":"TC06TiST08","option":"Next","order":1}]} -->
+
+## Step 7 — Foundation Database Settings
+
+Fill in the SQL Server database panels using the values below.
+
+### TEM Field Values for This Host Pattern
+
+| TEM field | Value |
+|-----------|-------|
+| Database vendor | `Microsoft SQL Server` |
+| Host | `server2019tc` |
+| Connection method | `Port` |
+| Port | `1433` |
+| Database name | *Choose your Teamcenter DB name before install* |
+| Data Directory (`TC_DATA`) | `C:\tcdata` |
+| Database path | SQL data folder on the SQL host (must already exist) |
+
+### If TEM is Creating the Database
+
+Provide when prompted:
+
+- SQL system user: `sa` (or your DBA account)
+- SQL system password: *available at runtime — do not embed in notes*
+
+TEM help notes the default collation: `Latin1_General_BIN`
+
+### Character Encoding
+
+TEM presents `CharEncodingPanel`. The reference configuration uses:
+
+- `Cp1252`
+
+Match this to the database encoding unless the environment requires otherwise.
+
+### Password Rules (TEM Enforces These)
+
+- Database passwords must not be empty
+- Database passwords must not contain whitespace
+- Avoid special characters that TEM rejects during DB system-user entry
+
+### Checkpoint
+
+- [ ] SQL host is `server2019tc`
+- [ ] Connection method is `Port`, not named instance
+- [ ] Port is `1433`
+- [ ] Database name is finalized
+- [ ] `TC_DATA` path is `C:\tcdata`
+- [ ] System-user credentials are available at runtime, not stored in notes
+- [ ] SQL data folder entered in TEM exists and is writable

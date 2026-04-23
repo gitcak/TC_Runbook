@@ -1,0 +1,80 @@
+---
+layout: null
+permalink: /11-troubleshooting_frags/TC11TrST03.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC11TrST03","topLevelMapKey":"TC11TrMAP0","mapKeyChain":"TC11TrMAP0","guideID":"TC11TrMAP0","parentFragmentID":"TC11TrST02","chartKey":"TC11TrMAP0","isLeaf":true,"options":[]} -->
+
+## Troubleshooting — AWC Gateway Issues
+
+### Symptom: AWC Root on Port 3000 Returns 404
+
+**Likely cause:** The gateway `/tc` route is incorrect.
+
+**Check the gateway configuration:**
+
+```powershell
+Get-Content C:\TC2412\microservices\gateway\config.json
+```
+
+The `/tc` target must be:
+
+```json
+"target": "http://server2019tc/tc"
+```
+
+If it shows `http://server2019tc:7001/tc`, correct it to `http://server2019tc/tc`.
+
+**Then restart the gateway:**
+
+```powershell
+# The gateway runs as part of the microservices — check its process or restart via its start script
+# Confirm the gateway config.json change is saved, then restart the AWC gateway service or process
+```
+
+---
+
+### Symptom: AWC Build Output is Stale
+
+If the gateway is routing correctly but the AWC UI is not showing expected content, rebuild and republish:
+
+```powershell
+cmd /c "awbuild.cmd > C:\TC_AI\logs\awbuild_%date:~-4,4%%date:~-10,2%%date:~-7,2%.log 2>&1"
+```
+
+Working directory: `C:\TC2412\aws2\stage`
+
+After adding AWC-facing features, always rebuild. The validated command:
+
+```powershell
+Set-Location C:\TC2412\aws2\stage
+cmd /c "awbuild.cmd > C:\TC_AI\logs\awbuild_$(Get-Date -Format 'yyyy-MM-dd').log 2>&1"
+```
+
+Reference: `C:\TC_AI\notes\2026-04-15_active_workspace_validation_and_repair.md`
+
+---
+
+### Validation After AWC Fix
+
+```powershell
+Invoke-WebRequest http://server2019tc:3000/ -UseBasicParsing
+Invoke-WebRequest http://server2019tc:3000/tc.html -UseBasicParsing
+```
+
+Expected: both return `StatusCode 200`
+
+---
+
+### Expected Behavior (Not an Error)
+
+On this host, these responses are normal and do **not** indicate a broken install:
+
+| URL | Response | Meaning |
+|-----|----------|---------|
+| `http://server2019tc/tc` | Redirects to `/tc/` | Normal redirect |
+| `http://server2019tc/tc/` | IIS `403.14` | Normal — directory listing is disabled |
+| `http://server2019tc:3000/tc/` | Mirrors `403.14` | Gateway is working; bare path is not the AWC entry |
+
+**Use `http://server2019tc:3000/` and `http://server2019tc:3000/tc.html` as the real AWC entrypoints.**

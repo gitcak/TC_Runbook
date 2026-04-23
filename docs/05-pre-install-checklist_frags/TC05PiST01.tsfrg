@@ -1,0 +1,97 @@
+---
+layout: null
+permalink: /05-pre-install-checklist_frags/TC05PiST01.html
+---
+
+
+<!-- tsFragmentRenderComment {"id":"TC05PiST01","topLevelMapKey":"TC05PiMAP0","mapKeyChain":"TC05PiMAP0","guideID":"TC05PiMAP0","chartKey":"TC05PiMAP0","isLeaf":true,"options":[]} -->
+
+## Pre-Install Server Settings Checklist
+
+Complete every item below before opening TEM. Stop and resolve anything that is not confirmed.
+
+### Host and Name Resolution
+
+- [ ] Final host name is chosen and set before installation
+- [ ] Host names are used in URIs instead of raw IP addresses
+- [ ] If SSL is planned later, FQDNs are used consistently
+
+### SQL Server
+
+- [ ] SQL Server is installed and running
+- [ ] The Teamcenter host can reach the SQL instance on port `1433`
+- [ ] SQL port is confirmed:
+  ```powershell
+  Get-Service MSSQLSERVER
+  Get-NetTCPConnection -State Listen | Where-Object LocalPort -eq 1433
+  ```
+- [ ] Teamcenter database name is decided
+- [ ] Decision made: TEM will create the database, or connect to an existing one
+- [ ] If TEM creates the database: `sa` credentials are available at runtime
+
+### IIS
+
+- [ ] IIS is installed with the full feature set (see Windows Features section)
+- [ ] Site choice is decided before TEM
+- [ ] `Default Web Site` is started:
+  ```powershell
+  Import-Module WebAdministration
+  Get-Website
+  ```
+- [ ] Decision made: reuse existing app pool or create a dedicated Teamcenter pool
+
+### Java
+
+- [ ] JRE 17.0.3 or newer is installed at `C:\java\jre`
+- [ ] `C:\java\jre\bin\java.exe` exists:
+  ```powershell
+  Test-Path "C:\java\jre\bin\java.exe"
+  ```
+- [ ] TEM will be launched with `-jre "C:\java\jre"` explicitly
+
+### Filesystem
+
+- [ ] Install drive has adequate free space
+- [ ] `C:\TC2412` exists (or will be created by TEM — verify TEM will use the right path)
+- [ ] `C:\tcdata` exists
+- [ ] Any database path entered into TEM already exists and is writable by the SQL service
+
+```powershell
+New-Item -ItemType Directory -Path C:\TC2412 -Force | Out-Null
+New-Item -ItemType Directory -Path C:\tcdata -Force | Out-Null
+```
+
+### Log and Evidence Setup
+
+Before running TEM, decide where evidence will be kept and run a baseline capture:
+
+```powershell
+$stamp = Get-Date -Format 'yyyy-MM-dd_HHmmss'
+
+Get-Service MSSQLSERVER,W3SVC,WAS |
+  Out-File "C:\TC_AI\logs\${stamp}_services_pre.txt"
+
+Get-NetTCPConnection -State Listen |
+  Sort-Object LocalPort |
+  Out-File "C:\TC_AI\logs\${stamp}_ports_pre.txt"
+
+Import-Module WebAdministration
+Get-Website | Out-File "C:\TC_AI\logs\${stamp}_iis_websites_pre.txt"
+Get-WebApplication | Out-File "C:\TC_AI\logs\${stamp}_iis_webapps_pre.txt"
+```
+
+---
+
+## Stop Conditions
+
+Pause the install and re-verify state if any of the following occur:
+
+| Condition | Action |
+|-----------|--------|
+| TEM cannot find a Java 17 runtime | Fix Java path and relaunch with `-jre` |
+| SQL Server is not listening on port `1433` | Resolve SQL issue before proceeding |
+| IIS site or app pool selection in TEM does not match intent | Cancel TEM, clarify topology |
+| TEM proposes reuse of a database or `TC_DATA` you did not intend | Cancel, verify paths |
+| Resulting Teamcenter URL is not the planned final URL | Correct before clicking Start |
+| TEM opens a recovery or restore path that may be stale | See `notes/2026-04-16_tem_stale_recovery_state_cleanup.md` |
+| Gateway or `/tc` route points to old `7001` endpoint | Correct before proceeding |
