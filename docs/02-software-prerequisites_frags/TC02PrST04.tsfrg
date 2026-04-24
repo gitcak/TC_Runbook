@@ -17,7 +17,7 @@ Required before TEM:
 - `Default Web Site` started (if reusing it for the Teamcenter pattern)
 - Decision made on app pool: reuse existing or create a dedicated Teamcenter pool
 
-See the [Windows Features](03-windows-features) section for the full feature list and installation command.
+See the [Windows Features](../03-windows-features/) section for the full feature list and installation command.
 
 ### Optional Tools for Active Workspace
 

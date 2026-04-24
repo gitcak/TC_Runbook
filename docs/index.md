@@ -60,3 +60,9 @@ If you already know the topology:
 | Server Manager service | `Teamcenter Server Manager TCFISHER_PoolA` |
 | Server Manager ports | `8086`, `8087`, `8088` |
 | AWC gateway | `http://server2019tc:3000` |
+
+---
+
+## Maintenance Notes
+
+- [Factual Consistency Review](FACTUAL_CONSISTENCY_REVIEW)

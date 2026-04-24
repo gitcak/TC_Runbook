@@ -92,8 +92,8 @@ All paths must return `True`.
 Select-String "version" C:\TC2412\install\configuration.xml | Select-Object -First 5
 ```
 
-After base install: version `2412`
-After patch: version `2412.8`
+After base install: release `2412`
+After patch: installed full version `2412.0.0.8`; patch/about version `2412.8`
 
 ---
 
