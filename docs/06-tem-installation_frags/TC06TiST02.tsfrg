@@ -32,8 +32,8 @@ For the single-host pattern, the documented baseline is:
 
 ### Checkpoint
 
-- [ ] SQL service is `Running`
-- [ ] SQL listener on port `1433` is confirmed
-- [ ] Host, port, and authentication method are known before TEM asks for them
+- SQL service is `Running`
+- SQL listener on port `1433` is confirmed
+- Host, port, and authentication method are known before TEM asks for them
 
 > **Note:** On this host, a previous SQL blocker was caused by an **expired SQL Server Evaluation edition**, not missing SSL. If SQL connectivity fails, check the edition and license state before assuming a network problem.

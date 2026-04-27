@@ -35,6 +35,6 @@ In the `SelectionPanel`, confirm the installation directory:
 
 ### Checkpoint
 
-- [ ] At minimum: `Teamcenter Foundation`, `Server Manager`, `Web Tier for .NET`, `FOSS Repository` are selected
-- [ ] No optional features are selected unless they are confirmed as in scope
-- [ ] Install directory is `C:\TC2412` — not a temporary or old path
+- At minimum: `Teamcenter Foundation`, `Server Manager`, `Web Tier for .NET`, `FOSS Repository` are selected
+- No optional features are selected unless they are confirmed as in scope
+- Install directory is `C:\TC2412` — not a temporary or old path

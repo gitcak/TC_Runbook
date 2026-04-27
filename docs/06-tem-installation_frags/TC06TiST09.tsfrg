@@ -24,8 +24,8 @@ http://server2019tc/tc
 
 ### Checkpoint
 
-- [ ] The 4-tier URL entered in TEM is `http://server2019tc/tc`
-- [ ] No obsolete `:7001` port is carried forward
-- [ ] Gzip compression is enabled
+- The 4-tier URL entered in TEM is `http://server2019tc/tc`
+- No obsolete `:7001` port is carried forward
+- Gzip compression is enabled
 
 > **Host-specific note:** This host previously had a gateway route pointing to `http://server2019tc:7001/tc`. That was corrected to `http://server2019tc/tc`. If TEM shows a pre-populated URI with `:7001`, clear it before proceeding.

@@ -15,49 +15,49 @@ Complete every item below before opening TEM. Stop and resolve anything that is 
 
 ### Host and Name Resolution
 
-- [ ] Final host name is chosen and set before installation
-- [ ] Host names are used in URIs instead of raw IP addresses
-- [ ] If SSL is planned later, FQDNs are used consistently
+- Final host name is chosen and set before installation
+- Host names are used in URIs instead of raw IP addresses
+- If SSL is planned later, FQDNs are used consistently
 
 ### SQL Server
 
-- [ ] SQL Server is installed and running
-- [ ] The Teamcenter host can reach the SQL instance on port `1433`
-- [ ] SQL port is confirmed:
+- SQL Server is installed and running
+- The Teamcenter host can reach the SQL instance on port `1433`
+- SQL port is confirmed:
   ```powershell
   Get-Service MSSQLSERVER
   Get-NetTCPConnection -State Listen | Where-Object LocalPort -eq 1433
   ```
-- [ ] Teamcenter database name is decided
-- [ ] Decision made: TEM will create the database, or connect to an existing one
-- [ ] If TEM creates the database: `sa` credentials are available at runtime
+- Teamcenter database name is decided
+- Decision made: TEM will create the database, or connect to an existing one
+- If TEM creates the database: `sa` credentials are available at runtime
 
 ### IIS
 
-- [ ] IIS is installed with the full feature set (see Windows Features section)
-- [ ] Site choice is decided before TEM
-- [ ] `Default Web Site` is started:
+- IIS is installed with the full feature set (see Windows Features section)
+- Site choice is decided before TEM
+- `Default Web Site` is started:
   ```powershell
   Import-Module WebAdministration
   Get-Website
   ```
-- [ ] Decision made: reuse existing app pool or create a dedicated Teamcenter pool
+- Decision made: reuse existing app pool or create a dedicated Teamcenter pool
 
 ### Java
 
-- [ ] JRE 17.0.3 or newer is installed at `C:\java\jre`
-- [ ] `C:\java\jre\bin\java.exe` exists:
+- JRE 17.0.3 or newer is installed at `C:\java\jre`
+- `C:\java\jre\bin\java.exe` exists:
   ```powershell
   Test-Path "C:\java\jre\bin\java.exe"
   ```
-- [ ] TEM will be launched with `-jre "C:\java\jre"` explicitly
+- TEM will be launched with `-jre "C:\java\jre"` explicitly
 
 ### Filesystem
 
-- [ ] Install drive has adequate free space
-- [ ] `C:\TC2412` exists (or will be created by TEM — verify TEM will use the right path)
-- [ ] `C:\tcdata` exists
-- [ ] Any database path entered into TEM already exists and is writable by the SQL service
+- Install drive has adequate free space
+- `C:\TC2412` exists (or will be created by TEM — verify TEM will use the right path)
+- `C:\tcdata` exists
+- Any database path entered into TEM already exists and is writable by the SQL service
 
 ```powershell
 New-Item -ItemType Directory -Path C:\TC2412 -Force | Out-Null

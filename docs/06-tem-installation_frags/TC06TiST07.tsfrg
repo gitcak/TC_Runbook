@@ -47,10 +47,10 @@ Match this to the database encoding unless the environment requires otherwise.
 
 ### Checkpoint
 
-- [ ] SQL host is `server2019tc`
-- [ ] Connection method is `Port`, not named instance
-- [ ] Port is `1433`
-- [ ] Database name is finalized
-- [ ] `TC_DATA` path is `C:\tcdata`
-- [ ] System-user credentials are available at runtime, not stored in notes
-- [ ] SQL data folder entered in TEM exists and is writable
+- SQL host is `server2019tc`
+- Connection method is `Port`, not named instance
+- Port is `1433`
+- Database name is finalized
+- `TC_DATA` path is `C:\tcdata`
+- System-user credentials are available at runtime, not stored in notes
+- SQL data folder entered in TEM exists and is writable

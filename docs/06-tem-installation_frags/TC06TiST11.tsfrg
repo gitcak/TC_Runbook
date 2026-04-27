@@ -71,8 +71,8 @@ If TEM still reports recovery mode, follow the procedure in `notes/2026-04-16_te
 
 ### Checkpoint
 
-- [ ] TEM reports successful completion
-- [ ] `configuration.xml` is saved and copied to `C:\TC_AI\logs`
-- [ ] TEM primary log path is recorded
-- [ ] Service state and URL checks are captured
-- [ ] No unresolved live install error remains
+- TEM reports successful completion
+- `configuration.xml` is saved and copied to `C:\TC_AI\logs`
+- TEM primary log path is recorded
+- Service state and URL checks are captured
+- No unresolved live install error remains

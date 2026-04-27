@@ -66,20 +66,20 @@ Use TEM Update Manager or maintenance mode against the existing configuration.
 
 After the patch completes:
 
-- [ ] `configuration.xml` shows patch version `2412.8`:
+- `configuration.xml` shows patch version `2412.8`:
   ```powershell
   Select-String "2412.8" C:\TC2412\install\configuration.xml
   ```
 
-- [ ] Patch source directory matches the expected media root:
+- Patch source directory matches the expected media root:
   `C:\tc_media_files\Tc2412.0008_wntx64\wntx64`
 
-- [ ] Base services still start cleanly after patching:
+- Base services still start cleanly after patching:
   ```powershell
   Get-Service MSSQLSERVER,'Teamcenter Server Manager TCFISHER_PoolA',W3SVC
   ```
 
-- [ ] Patch log is saved under `C:\TC_AI\logs`
+- Patch log is saved under `C:\TC_AI\logs`
 
 ---
 

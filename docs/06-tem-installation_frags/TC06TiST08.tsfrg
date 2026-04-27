@@ -42,8 +42,8 @@ The validated IIS state on this host after install:
 
 ### Checkpoint
 
-- [ ] Selected site is `Default Web Site`
-- [ ] App pool name recorded (`TcWebTierPool`)
-- [ ] Virtual directory is `tc`
-- [ ] Resulting Teamcenter URL is `http://server2019tc/tc` — this is the final user-facing endpoint
-- [ ] IIS is not being pointed to a temporary location
+- Selected site is `Default Web Site`
+- App pool name recorded (`TcWebTierPool`)
+- Virtual directory is `tc`
+- Resulting Teamcenter URL is `http://server2019tc/tc` — this is the final user-facing endpoint
+- IIS is not being pointed to a temporary location

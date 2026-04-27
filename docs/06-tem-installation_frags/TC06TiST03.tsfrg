@@ -35,7 +35,7 @@ Current validated runtime on this host: **Temurin 17.0.18**
 
 ### Checkpoint
 
-- [ ] `C:\java\jre` exists
-- [ ] `C:\java\jre\bin\java.exe` exists
-- [ ] Java version is `17.0.3` or higher
-- [ ] You know exactly which JRE path TEM will use — it will be passed via `-jre`
+- `C:\java\jre` exists
+- `C:\java\jre\bin\java.exe` exists
+- Java version is `17.0.3` or higher
+- You know exactly which JRE path TEM will use — it will be passed via `-jre`

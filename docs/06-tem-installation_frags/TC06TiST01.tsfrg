@@ -24,9 +24,9 @@ If following the validated local pattern, keep:
 
 ### Checkpoint
 
-- [ ] Target folders exist
-- [ ] Paths match the operator worksheet
-- [ ] No old temporary install path is being reused by mistake
+- Target folders exist
+- Paths match the operator worksheet
+- No old temporary install path is being reused by mistake
 
 ---
 

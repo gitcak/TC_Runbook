@@ -50,8 +50,8 @@ Server Manager uses the same SQL Server instance:
 
 ### Checkpoint
 
-- [ ] Assignment port is `8086`
-- [ ] MUX port is `8087`
-- [ ] JMX RMI port is `8088`
-- [ ] Cluster ID and Pool ID are intentional and recorded
-- [ ] Values align with the target client and web-tier topology
+- Assignment port is `8086`
+- MUX port is `8087`
+- JMX RMI port is `8088`
+- Cluster ID and Pool ID are intentional and recorded
+- Values align with the target client and web-tier topology

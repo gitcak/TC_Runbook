@@ -36,11 +36,11 @@ Optional but strongly recommended for managing the Teamcenter database:
 
 Decide these before TEM asks:
 
-- [ ] Final Teamcenter database name
-- [ ] Teamcenter database login name and password
-- [ ] Whether TEM will **create** the database or connect to an existing one
-- [ ] If TEM creates the database: have the `sa` password available
-- [ ] SQL data folder path (where TEM will place the database files)
+- Final Teamcenter database name
+- Teamcenter database login name and password
+- Whether TEM will **create** the database or connect to an existing one
+- If TEM creates the database: have the `sa` password available
+- SQL data folder path (where TEM will place the database files)
 
 ### Password Rules
 

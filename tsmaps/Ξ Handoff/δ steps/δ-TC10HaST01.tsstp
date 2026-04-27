@@ -4,25 +4,25 @@ Before closing the install session, confirm these items are recorded and handed 
 
 ### Installation Summary
 
-- [ ] Final Teamcenter version and patch level (`2412.0.0.8`)
-- [ ] Final `TC_ROOT`: `C:\TC2412`
-- [ ] Final `TC_DATA`: `C:\tcdata`
-- [ ] Final Teamcenter 4-tier URL: `http://server2019tc/tc`
-- [ ] SQL host and connection method: `server2019tc`, port `1433`
-- [ ] IIS site, app pool, and virtual directory: `Default Web Site`, `TcWebTierPool`, `tc`
-- [ ] Server Manager service name and ports: `Teamcenter Server Manager TCFISHER_PoolA`, `8086/8087/8088`
+- Final Teamcenter version and patch level (`2412.0.0.8`)
+- Final `TC_ROOT`: `C:\TC2412`
+- Final `TC_DATA`: `C:\tcdata`
+- Final Teamcenter 4-tier URL: `http://server2019tc/tc`
+- SQL host and connection method: `server2019tc`, port `1433`
+- IIS site, app pool, and virtual directory: `Default Web Site`, `TcWebTierPool`, `tc`
+- Server Manager service name and ports: `Teamcenter Server Manager TCFISHER_PoolA`, `8086/8087/8088`
 
 ### Evidence Archived
 
-- [ ] Primary install log location recorded
-- [ ] Patch log location recorded
-- [ ] Final `configuration.xml` copied to `C:\TC_AI\logs`
-- [ ] Service state snapshot saved
+- Primary install log location recorded
+- Patch log location recorded
+- Final `configuration.xml` copied to `C:\TC_AI\logs`
+- Service state snapshot saved
 
 ### Deviations and Follow-Up
 
-- [ ] Any deviations from the validated `server2019tc` pattern are documented
-- [ ] Any unresolved warnings that still need follow-up are listed below
+- Any deviations from the validated `server2019tc` pattern are documented
+- Any unresolved warnings that still need follow-up are listed below
 
 ---
 

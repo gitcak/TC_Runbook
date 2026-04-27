@@ -22,8 +22,8 @@ After TEM opens, proceed through these panels in order:
 
 ### Checkpoint
 
-- [ ] TEM opens without a Java path error
-- [ ] `WelcomePanel` shows `Install` as the selected option
-- [ ] Configuration ID is recorded before proceeding
+- TEM opens without a Java path error
+- `WelcomePanel` shows `Install` as the selected option
+- Configuration ID is recorded before proceeding
 
 > **Warning:** Do not use `Quick Preconfigured Install`. It bypasses the configuration panels this runbook documents and may produce an installation that does not match the validated host pattern.

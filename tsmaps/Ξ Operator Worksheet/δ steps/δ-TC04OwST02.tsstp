@@ -30,14 +30,14 @@ Collect and confirm all values below **before** starting TEM. Leave no field bla
 
 These must be finalized and available at TEM runtime. Do not store credentials in notes.
 
-- [ ] Teamcenter database name
-- [ ] Teamcenter database login name
-- [ ] Teamcenter database login password
-- [ ] SQL system user password (if TEM is creating the database)
-- [ ] `infodba` password
-- [ ] Windows service account name and password
-- [ ] Optional module list beyond the core platform
-- [ ] Optional Active Workspace, FMS, FSC, Solr, gateway, or microservice URLs
+- Teamcenter database name
+- Teamcenter database login name
+- Teamcenter database login password
+- SQL system user password (if TEM is creating the database)
+- `infodba` password
+- Windows service account name and password
+- Optional module list beyond the core platform
+- Optional Active Workspace, FMS, FSC, Solr, gateway, or microservice URLs
 
 ### Port Reservation Checklist
 
