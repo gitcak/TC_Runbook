@@ -10,6 +10,8 @@ These are validated working settings on this host. Do not change them without a 
 | AWC gateway `/tc` route | Must point to `http://server2019tc/tc` — not `:7001/tc` |
 | Host names in URLs | Use host names, not raw IP addresses |
 | `pom_transmit` | `C:\TC2412\pom_transmit` must exist — it is required by the deploy path |
+| Hosted-AW CAD preferences | SolidWorks and Creo hosted-AW URLs must be `http://server2019tc:3000`, not placeholder `/awc` URLs |
+| FSC for CAD data movement | Keep `Teamcenter FSC Service FSC_server2019tc_Administrator` running on port `4544` |
 
 ### Validated Endpoints
 
@@ -39,6 +41,8 @@ Use `:3000/` and `:3000/tc.html` as the real AWC entrypoints.
 | Trusting TEM popup state without reading the log | Read the current log before clicking Retry |
 | Treating `404` on AWC root as a base install failure | Diagnose the gateway route first — check `config.json` |
 | Copying old `:7001` examples into the gateway route | Verify the `/tc` target is `http://server2019tc/tc` |
+| Treating `http://server2019tc:3000/awc` `404` as a failed CAD integration | Use `http://server2019tc:3000` for hosted-AW CAD preferences |
+| Stopping FSC during CAD validation | Keep FSC running for model dataset transfer and client file movement |
 
 ### Best Rollback Point
 

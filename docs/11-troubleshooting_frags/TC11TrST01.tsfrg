@@ -72,3 +72,18 @@ foreach ($f in $files) {
 ### Reference Note
 
 `C:\TC_AI\notes\2026-04-16_tem_stale_recovery_state_cleanup.md`
+
+### April 28 CAD Integration Follow-Up
+
+The April 28 CAD integration work found that a recovery-cleaned but very small active `configuration.xml` can clear stale recovery mode while still lacking enough TEM context for future feature additions.
+
+If TEM add-on templates are greyed out or feature gating looks wrong after recovery cleanup:
+
+1. Do not blindly restore an older full `configuration.xml`.
+2. Preserve the cleaned recovery state.
+3. Restore only the missing TEM source-location, mode/checkpoint, and data context needed for feature maintenance.
+4. Re-run:
+   ```powershell
+   cmd /c "C:\TC2412\install\tem.bat -restart -config=TCFISHER -test"
+   ```
+5. Confirm the result remains `Configuration TCFISHER is not in recovery mode`.

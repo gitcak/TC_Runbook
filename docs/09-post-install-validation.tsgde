@@ -18,13 +18,19 @@ Run all checks immediately after installation or patching. Do not declare the in
 ### 1. Service Checks
 
 ```powershell
-Get-Service MSSQLSERVER,'Teamcenter Server Manager TCFISHER_PoolA',W3SVC
+Get-Service -Name @(
+  'MSSQLSERVER',
+  'Teamcenter Server Manager TCFISHER_PoolA',
+  'Teamcenter FSC Service FSC_server2019tc_Administrator',
+  'W3SVC'
+)
 ```
 
 | Service | Expected status |
 |---------|----------------|
 | `MSSQLSERVER` | `Running` |
 | `Teamcenter Server Manager TCFISHER_PoolA` | `Running` |
+| `Teamcenter FSC Service FSC_server2019tc_Administrator` | `Running` when FMS or CAD integrations are in scope |
 | `W3SVC` | `Running` |
 
 ---
@@ -88,12 +94,13 @@ Invoke-WebRequest http://server2019tc:3000/tc.html -UseBasicParsing
   "C:\TC2412",
   "C:\tcdata",
   "C:\TC2412\install\configuration.xml",
+  "C:\TC2412\install\configuration2604281149.xml",
   "C:\TC2412\pool_manager\confs\TCFISHER",
   "C:\TC2412\net_webtier_TCFISHER\tc"
 ) | ForEach-Object { [pscustomobject]@{ Path = $_; Exists = (Test-Path $_) } }
 ```
 
-All paths must return `True`.
+All paths must return `True` after the April 28 CAD integration work. If you are validating a base-only rebuild before CAD integrations, `configuration2604281149.xml` may not exist yet.
 
 ---
 
@@ -105,6 +112,13 @@ Select-String "version" C:\TC2412\install\configuration.xml | Select-Object -Fir
 
 After base install: release `2412`
 After patch: installed full version `2412.0.0.8`; patch/about version `2412.8`
+
+After CAD integration deployment, confirm the active configuration also records SolidWorks, Creo, and CATIA server-side integration markers.
+
+```powershell
+Select-String -Path C:\TC2412\install\configuration.xml `
+  -Pattern "Integration for SolidWorks","Integration for Creo","Integration for CATIA","swim","ipem","integration4catia"
+```
 
 ---
 

@@ -37,3 +37,18 @@ Use these labels consistently:
 | Installed full version | `2412.0.0.8` |
 | Patch/about version | `2412.8` |
 | Patch package label | `2412.008` |
+
+## April 29 CAD Integration Update
+
+The published runbook was updated from the April 28, 2026 `C:\TC_AI` CAD integration records.
+
+New facts reflected:
+
+- SolidWorks Integration for Teamcenter `2412.1000.0000` server-side deployment was completed and verified.
+- Creo Integration for Teamcenter `2412.1000.0000` server-side deployment was completed and verified.
+- Teamcenter Integration for CATIA V5 `2412.1004.0000` server-side deployment was completed and verified.
+- The active `configuration.xml` was repaired to preserve cleaned TEM recovery state while restoring the context needed for future feature maintenance.
+- `configuration2604281149.xml` is the post-success configuration archive for the April 28 CAD integration work.
+- FSC on port `4544` is required for CAD model dataset transfer and client file movement.
+- SolidWorks and Creo hosted-AW preferences should use `http://server2019tc:3000`, while `http://server2019tc:3000/awc` returning `404` is expected on this host.
+- Remaining CAD validation is client-workstation work, not server-host work.

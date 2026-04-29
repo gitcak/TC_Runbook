@@ -26,6 +26,7 @@ This runbook documents the complete TEM-based installation of Teamcenter 2412 wi
 | 9 | [Post-Install Validation](09-post-install-validation) | Service, port, IIS and URL checks |
 | 10 | [Handoff](10-handoff) | Handoff checklist and known conventions |
 | 11 | [Troubleshooting](11-troubleshooting) | TEM state recovery, server manager, AWC gateway |
+| 12 | [CAD Integrations](12-cad-integrations) | SolidWorks, Creo, and CATIA V5 server-side integration state |
 
 ---
 
@@ -41,8 +42,9 @@ If you already know the topology:
 6. Launch TEM: `tem.bat -jre "C:\java\jre"`
 7. Install Foundation, Server Manager, Web Tier for .NET, FOSS Repository
 8. Apply patch 2412.008
-9. Validate IIS, WSDL, server-manager ports, and optional AWC
-10. Archive logs under `C:\TC_AI`
+9. Validate IIS, WSDL, server-manager ports, FSC, and optional AWC
+10. If CAD integrations are in scope, install and verify server-side templates before client rollout
+11. Archive logs under `C:\TC_AI`
 
 ---
 
@@ -60,6 +62,7 @@ If you already know the topology:
 | Server Manager service | `Teamcenter Server Manager TCFISHER_PoolA` |
 | Server Manager ports | `8086`, `8087`, `8088` |
 | AWC gateway | `http://server2019tc:3000` |
+| CAD integration server state | SolidWorks `2412.1000`, Creo `2412.1000`, CATIA V5 `2412.1004` server-side templates deployed April 28, 2026 |
 
 ---
 

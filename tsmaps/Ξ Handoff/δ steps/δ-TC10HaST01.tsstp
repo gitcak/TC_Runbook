@@ -11,12 +11,15 @@ Before closing the install session, confirm these items are recorded and handed 
 - SQL host and connection method: `server2019tc`, port `1433`
 - IIS site, app pool, and virtual directory: `Default Web Site`, `TcWebTierPool`, `tc`
 - Server Manager service name and ports: `Teamcenter Server Manager TCFISHER_PoolA`, `8086/8087/8088`
+- FSC service and port for FMS/CAD workflows: `Teamcenter FSC Service FSC_server2019tc_Administrator`, `4544`
+- CAD server-side integration state, if present: SolidWorks `2412.1000`, Creo `2412.1000`, CATIA V5 `2412.1004`
 
 ### Evidence Archived
 
 - Primary install log location recorded
 - Patch log location recorded
 - Final `configuration.xml` copied to `C:\TC_AI\logs`
+- Post-CAD-integration `configuration2604281149.xml` archived or referenced, if CAD integrations are in scope
 - Service state snapshot saved
 
 ### Deviations and Follow-Up
@@ -51,4 +54,6 @@ Write a brief handoff note covering:
 | 7 | Install Foundation, Server Manager, Web Tier for .NET, FOSS Repository |
 | 8 | Apply patch `2412.008` |
 | 9 | Validate WSDL, IIS, services, and optional AWC |
-| 10 | Archive logs and notes under `C:\TC_AI` |
+| 10 | Install and verify server-side CAD integrations if in scope |
+| 11 | Run client-workstation validation for each CAD integration |
+| 12 | Archive logs and notes under `C:\TC_AI` |

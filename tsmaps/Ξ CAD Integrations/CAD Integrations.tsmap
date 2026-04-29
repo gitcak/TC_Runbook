@@ -1,0 +1,25 @@
+{
+  "key": "TC12CiMAP0",
+  "token": "CAD Integrations",
+  "name": "CAD Integrations",
+  "created": "2026-04-29T13:30:00.000Z",
+  "list": true,
+  "publishFileName": "12-cad-integrations",
+  "cachedPath": "c:/TC_Runbook/tsmaps/Îž CAD Integrations/CAD Integrations.tsmap",
+  "iText": "Link to 'CAD Integrations'",
+  "___rÎ©Î©t___": {
+    "key": "TC12CiST01",
+    "isLeaf": true
+  },
+  "___Î±ssÎµts___": [
+    {
+      "key": "Î´-TC12CiST01",
+      "relativePath": "./Î´ steps/Î´-TC12CiST01.tsstp"
+    }
+  ],
+  "___Îµdit___": {
+    "id": "tc12cimap",
+    "editorID": "manual",
+    "ticks": 1777469400000
+  }
+}

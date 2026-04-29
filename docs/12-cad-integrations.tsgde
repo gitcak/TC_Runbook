@@ -1,0 +1,93 @@
+---
+title: null
+isGuide: true
+mapFolderPath: tsmaps/%CE%9E%20CAD%20Integrations
+fragsFolderPath: 12-cad-integrations_frags
+
+---
+
+
+<!-- tsGuideRenderComment {"guide":{"id":"TC12CiST01","path":"","fragmentFolderPath":"12-cad-integrations_frags"},"fragment":{"id":"TC12CiST01","topLevelMapKey":"TC12CiMAP0","mapKeyChain":"TC12CiMAP0","guideID":"TC12CiMAP0","chartKey":"TC12CiMAP0","isLeaf":true,"options":[]}} -->
+
+## CAD Integration Server-Side State
+
+This section records the newest Teamcenter CAD integration state captured from `C:\TC_AI` on April 28, 2026. It covers the Teamcenter server and database side of the integrations only. End-to-end CAD open, save, revise, and dataset workflows still require properly configured CAD client workstations.
+
+### Installed Server-Side Integrations
+
+| Integration | Server package | Server-side result |
+|-------------|----------------|--------------------|
+| SolidWorks Integration for Teamcenter | `2412.1000.0000` | Deployed and verified in Teamcenter |
+| Creo Integration for Teamcenter | `2412.1000.0000` | Deployed and verified in Teamcenter |
+| Teamcenter Integration for CATIA V5 | `2412.1004.0000` | Deployed and verified in Teamcenter |
+
+### Configuration Evidence
+
+The active `C:\TC2412\install\configuration.xml` was repaired during the April 28 CAD integration work. It now preserves the cleaned TEM recovery state while restoring the configuration context TEM needs for feature maintenance.
+
+Confirmed state:
+
+- no saved `director` component with `status="-1"`
+- no stale TEM recovery comment text
+- restored TEM source-location and data context needed for feature gating
+- SolidWorks data model and runtime installed feature entries present
+- Creo data model and runtime installed feature entries present
+- CATIA data model and runtime server markers present
+- post-success TEM archive captured as `C:\TC2412\install\configuration2604281149.xml`
+
+Do not replace the active `configuration.xml` with an older small recovery-cleaned file. Also do not blindly restore `configuration2604141619.xml`; use it only as a reference if a future repair is planned.
+
+### Verification Completed
+
+After the server-side deployments, the following checks were completed:
+
+- `swim` and `ipem` appear in the installed template list.
+- `integration4catia` appears in the installed template list.
+- `list_types` and dataset-type validation found SolidWorks, Creo, and CATIA dataset/model-support types.
+- CAD integration site preferences exported successfully.
+- Hosted Active Workspace preferences for SolidWorks and Creo were corrected to `http://server2019tc:3000`.
+- Client meta cache ticket generation completed successfully after the SolidWorks and Creo server updates.
+- Teamcenter services restarted successfully after deployment.
+- Listening ports included `3000`, `4544`, `8086`, `8087`, `8088`, `8787`, and `9090`.
+- Active Workspace root returned HTTP `200` after service warm-up.
+- Direct unauthenticated IIS `/tc` access returned `403`, which matches the established host baseline.
+
+### FSC Requirement
+
+Keep `Teamcenter FSC Service FSC_server2019tc_Administrator` running for CAD validation and client workflows. The April 28 recovery work confirmed that model dataset transfer depends on FSC availability on port `4544`.
+
+### Active Workspace Notes
+
+For hosted Active Workspace behavior used by CAD integrations, use:
+
+- `http://server2019tc:3000`
+
+Do not use the placeholder form:
+
+- `http://<CHANGE_ME_HOST>:<CHANGE_ME_PORT>/awc`
+
+On this host, `http://server2019tc:3000/awc` returns `404`; that does not invalidate the corrected hosted-AW preference value.
+
+### Remaining Client Work
+
+The Teamcenter server host is not the CAD client test workstation. Local checks found no installed SolidWorks, Creo, CATIA V5, SWIM client, iPEM client, or TCIC client on this server.
+
+Complete these tests from suitable CAD workstations:
+
+- install the matching SolidWorks, Creo, or CATIA client integration
+- verify Teamcenter login to `TCFISHER` through the 4-tier URL
+- confirm the client can reach `http://server2019tc:3000`, `http://server2019tc/tc`, FSC, and required service ports
+- create or open a small CAD part, assembly, and drawing
+- save the object into Teamcenter
+- verify expected dataset types are created, such as `SWPrt`, `SWAsm`, `SWDrw`, `ProPrt`, `ProAsm`, `ProDrw`, `CATPart`, `CATProduct`, and `CATDrawing`
+- reopen saved datasets from Teamcenter into the CAD application
+- confirm dependency relations, named references, and FMS cache transfers resolve without FSC or proxy errors
+
+### Source Notes in TC_AI
+
+The detailed installation evidence remains under `C:\TC_AI`:
+
+- `C:\TC_AI\docs\TC2412_CAD_INTEGRATION_SOURCE_INVENTORY_2026-04-28.md`
+- `C:\TC_AI\docs\TC2412_CAD_INTEGRATION_INSTALL_RUN_2026-04-28.md`
+- `C:\TC_AI\docs\TC2412_CATIA_V5_INTEGRATION_INSTALL_RUN_2026-04-28.md`
+- artifact roots under `C:\TC_AI\artifacts\cad_integration_2026-04-28` and `C:\TC_AI\artifacts\catia_v5_integration_2026-04-28`
